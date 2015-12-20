@@ -1,0 +1,5 @@
+<svg fill="none" class="stroke">
+  <path stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M22.247,59.467c0-18.502,14.999-33.5,33.5-33.5"/>
+  <path stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M113.737,60.466c0,29.549-34.625,79.516-53.5,79.516c-19.5,0-53.5-49.969-53.5-79.516c0-29.548,23.953-53.5,53.5-53.5S113.737,30.918,113.737,60.466z"/>
+  <circle stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="60.551" cy="73.167" r="16.431"/>
+</svg>

@@ -29,11 +29,8 @@ class Root extends React.Component {
         {this.props.children}
         <Layout.Footer>
           <Nav>
-            <Nav.Item to="cerveza" icon="cerveza">Cerveza</Nav.Item>
-            <Nav.Item to="info" icon="info">Info</Nav.Item>
             <Nav.Item to="/" icon="mapa">Mapa</Nav.Item>
-            <Nav.Item to="eventos" icon="eventos">Eventos</Nav.Item>
-            <Nav.Item to="noticias" icon="noticias">Noticias</Nav.Item>
+            <Nav.Item to="info" icon="info">Info</Nav.Item>
           </Nav>
         </Layout.Footer>
       </Layout>

@@ -24772,11 +24772,6 @@
 	            null,
 	            _react2["default"].createElement(
 	              _BaseNav2["default"].Item,
-	              { to: "cerveza", icon: "cerveza" },
-	              "Cerveza"
-	            ),
-	            _react2["default"].createElement(
-	              _BaseNav2["default"].Item,
 	              { to: "info", icon: "info" },
 	              "Info"
 	            ),
@@ -24784,16 +24779,6 @@
 	              _BaseNav2["default"].Item,
 	              { to: "/", icon: "mapa" },
 	              "Mapa"
-	            ),
-	            _react2["default"].createElement(
-	              _BaseNav2["default"].Item,
-	              { to: "eventos", icon: "eventos" },
-	              "Eventos"
-	            ),
-	            _react2["default"].createElement(
-	              _BaseNav2["default"].Item,
-	              { to: "noticias", icon: "noticias" },
-	              "Noticias"
 	            )
 	          )
 	        )

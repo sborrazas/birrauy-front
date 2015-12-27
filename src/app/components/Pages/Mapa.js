@@ -20,6 +20,7 @@ class Mapa extends React.Component {
   }
   render () {
     var breweries = this.props.breweries
+      , venues = this.props.venues
       , activeBreweryId = this.state.activeBreweryId
       , activeBrewery = null
       , breweryPhoto = null
@@ -28,16 +29,25 @@ class Mapa extends React.Component {
 
     containerProps = {
       style: {
-        height: "100%",
+        height: "100%"
       }
     };
 
-    if (breweries.get("status") === "loading") {
+    if (breweries.get("status") === "loading" ||
+        venues.get("status") === "loading") {
+
       return (<div>Loading</div>);
     }
 
+    breweries = breweries.get("data")
+      .map((b) => b.update("id", (id) => ("brewery-" + id)))
+      .concat(
+        venues.get("data")
+          .map((b) => b.update("id", (id) => ("venue-" + id)))
+      );
+
     if (activeBreweryId) {
-      activeBrewery = breweries.get("data").find((brewery) => {
+      activeBrewery = breweries.find((brewery) => {
         return brewery.get("id") === activeBreweryId;
       });
 
@@ -60,14 +70,17 @@ class Mapa extends React.Component {
       );
     }
 
-    markers = breweries.get("data")
+    markers = breweries
       .filter((brewery) => {
+        var type = brewery.get("brewery_type") || brewery.get("venue_type");
+
         return brewery.get("lat") && brewery.get("lng") &&
-          BREWERY_TYPES.indexOf(brewery.get("brewery_type")) !== -1;
+          BREWERY_TYPES.indexOf(type) !== -1;
       })
       .map((brewery) => {
         var isActive = brewery.get("id") === activeBreweryId
-          , imgKey = BREWERY_IMG_MAP[brewery.get("brewery_type")]
+          , type = brewery.get("brewery_type") || brewery.get("venue_type")
+          , imgKey = BREWERY_IMG_MAP[type]
           , position = null
           , icon = null;
 
@@ -116,7 +129,8 @@ class Mapa extends React.Component {
 }
 
 Mapa.propTypes = {
-  breweries: React.PropTypes.object.isRequired
+  breweries: React.PropTypes.object.isRequired,
+  venues: React.PropTypes.object.isRequired
 };
 
 export default Relay.createContainer(Mapa, {
@@ -125,6 +139,13 @@ export default Relay.createContainer(Mapa, {
       info: function (params, request) {
         return {
           id: "/breweries"
+        };
+      }
+    },
+    venues: {
+      info: function (params, request) {
+        return {
+          id: "/venues"
         };
       }
     }

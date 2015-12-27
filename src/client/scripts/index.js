@@ -24772,13 +24772,13 @@
 	            null,
 	            _react2["default"].createElement(
 	              _BaseNav2["default"].Item,
-	              { to: "info", icon: "info" },
-	              "Info"
+	              { to: "/", icon: "mapa" },
+	              "Mapa"
 	            ),
 	            _react2["default"].createElement(
 	              _BaseNav2["default"].Item,
-	              { to: "/", icon: "mapa" },
-	              "Mapa"
+	              { to: "info", icon: "info" },
+	              "Info"
 	            )
 	          )
 	        )
@@ -25277,6 +25277,7 @@
 	      var _this = this;
 
 	      var breweries = this.props.breweries,
+	          venues = this.props.venues,
 	          activeBreweryId = this.state.activeBreweryId,
 	          activeBrewery = null,
 	          breweryPhoto = null,
@@ -25289,7 +25290,8 @@
 	        }
 	      };
 
-	      if (breweries.get("status") === "loading") {
+	      if (breweries.get("status") === "loading" || venues.get("status") === "loading") {
+
 	        return _react2["default"].createElement(
 	          "div",
 	          null,
@@ -25297,8 +25299,18 @@
 	        );
 	      }
 
+	      breweries = breweries.get("data").map(function (b) {
+	        return b.update("id", function (id) {
+	          return "brewery-" + id;
+	        });
+	      }).concat(venues.get("data").map(function (b) {
+	        return b.update("id", function (id) {
+	          return "venue-" + id;
+	        });
+	      }));
+
 	      if (activeBreweryId) {
-	        activeBrewery = breweries.get("data").find(function (brewery) {
+	        activeBrewery = breweries.find(function (brewery) {
 	          return brewery.get("id") === activeBreweryId;
 	        });
 
@@ -25327,11 +25339,14 @@
 	        );
 	      }
 
-	      markers = breweries.get("data").filter(function (brewery) {
-	        return brewery.get("lat") && brewery.get("lng") && _configAppJs.BREWERY_TYPES.indexOf(brewery.get("brewery_type")) !== -1;
+	      markers = breweries.filter(function (brewery) {
+	        var type = brewery.get("brewery_type") || brewery.get("venue_type");
+
+	        return brewery.get("lat") && brewery.get("lng") && _configAppJs.BREWERY_TYPES.indexOf(type) !== -1;
 	      }).map(function (brewery) {
 	        var isActive = brewery.get("id") === activeBreweryId,
-	            imgKey = _configAppJs.BREWERY_IMG_MAP[brewery.get("brewery_type")],
+	            type = brewery.get("brewery_type") || brewery.get("venue_type"),
+	            imgKey = _configAppJs.BREWERY_IMG_MAP[type],
 	            position = null,
 	            icon = null;
 
@@ -25386,7 +25401,8 @@
 	})(_react2["default"].Component);
 
 	Mapa.propTypes = {
-	  breweries: _react2["default"].PropTypes.object.isRequired
+	  breweries: _react2["default"].PropTypes.object.isRequired,
+	  venues: _react2["default"].PropTypes.object.isRequired
 	};
 
 	exports["default"] = _utilsRelayJs2["default"].createContainer(Mapa, {
@@ -25395,6 +25411,13 @@
 	      info: function info(params, request) {
 	        return {
 	          id: "/breweries"
+	        };
+	      }
+	    },
+	    venues: {
+	      info: function info(params, request) {
+	        return {
+	          id: "/venues"
 	        };
 	      }
 	    }
@@ -34393,12 +34416,18 @@
 	  BREWERY_TYPES: [
 	    "Cervecería",
 	    "Brewpub",
-	    "Marca"
+	    "Marca",
+	    "Tienda",
+	    "Restaurant",
+	    "Bar"
 	  ],
 	  BREWERY_IMG_MAP: {
 	    "Cervecería": "pin-brewery",
 	    "Brewpub": "pin-bar",
-	    "Marca": "pin-store"
+	    "Marca": "pin-store",
+	    "Tienda": "pin-store",
+	    "Restaurant": "pin-bar",
+	    "Bar": "pin-bar"
 	  }
 	};
 

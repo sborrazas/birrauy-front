@@ -7,11 +7,17 @@ module.exports = {
   BREWERY_TYPES: [
     "Cervecería",
     "Brewpub",
-    "Marca"
+    "Marca",
+    "Tienda",
+    "Restaurant",
+    "Bar"
   ],
   BREWERY_IMG_MAP: {
     "Cervecería": "pin-brewery",
     "Brewpub": "pin-bar",
-    "Marca": "pin-store"
+    "Marca": "pin-store",
+    "Tienda": "pin-store",
+    "Restaurant": "pin-bar",
+    "Bar": "pin-bar"
   }
 };

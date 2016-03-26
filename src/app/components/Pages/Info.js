@@ -49,7 +49,7 @@ class Info extends React.Component {
             que invitaron a la comunidad a desarrollar esta idea a través de
             un primer encuentro en un Café de DATA (reuniones mensuales para
             trabajar en Datos Abiertos y herramientas sociales realizadas en
-            <Link to="https://www.twitter.com/coworkinguy">CoworkingUY</Link>).
+            {" "}<Link to="https://www.twitter.com/coworkinguy">CoworkingUY</Link>).
           </About.Description>
           <About.Title secondary={true}>Desarrollo</About.Title>
           <About.List>

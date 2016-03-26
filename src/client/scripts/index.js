@@ -35094,6 +35094,7 @@
 	              "Underground Beer Club"
 	            ),
 	            ", que invitaron a la comunidad a desarrollar esta idea a través de un primer encuentro en un Café de DATA (reuniones mensuales para trabajar en Datos Abiertos y herramientas sociales realizadas en",
+	            " ",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "https://www.twitter.com/coworkinguy" },

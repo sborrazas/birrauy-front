@@ -23,6 +23,7 @@ class Root extends React.Component {
       <Layout>
         <Layout.Header>
           <Header>
+            <Header.Logo src="/images/dondepinta-logo.png" />
             <Header.Title>Dónde pinta?</Header.Title>
           </Header>
         </Layout.Header>

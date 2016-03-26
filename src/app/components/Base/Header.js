@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 class Header extends React.Component {
   render () {
@@ -16,6 +17,15 @@ class Title extends React.Component {
   }
 }
 
+class Logo extends React.Component {
+  render () {
+    return (
+      <Link to="/"><img className="header-logo" src={this.props.src} /></Link>
+    );
+  }
+}
+
 Header.Title = Title;
+Header.Logo = Logo;
 
 export default Header;

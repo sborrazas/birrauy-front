@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../Base/Layout";
 import Banner from "../Base/Banner";
 import Relay from "../../../utils/Relay.js";
+import List from "../Base/List";
 
 class Cerveza extends React.Component {
   constructor () {
@@ -12,33 +13,47 @@ class Cerveza extends React.Component {
     };
   }
   render () {
-    var beers = this.props.beers;
-
-    console.log("beers", beers.toJS());
+    var beers = this.props.beers
+      , beersByBrand = null;
 
     if (beers.get("status") === "loading") {
       return (<div>Loading</div>);
     }
 
+    beersByBrand = beers.get("data").groupBy((b) => b.get("brand"));
+
     return (
       <Layout.Content withBanner={false}>
-        {
-          beers.get("data").map(function (beer) {
-            return (
-              <div key={beer.get("id")}>
-                {beer.get("brand")}
-                {" - "}{beer.get("style")}
-              </div>
-            );
-          })
-        }
+        <List>
+          {
+            beersByBrand.map((beers, brand) => {
+              const list = [
+                <List.Item key={"brand-" + brand} title={true}>
+                  {brand}
+                </List.Item>
+              ];
+              const brandBeers = beers.map((beer) => {
+                return (
+                  <List.Item key={beer.get("id")}>
+                    <List.ItemTitle>
+                      {beer.get("brand")}
+                      {" "}{beer.get(["style", "name"])}
+                      {" "}{beer.get("size")}
+                    </List.ItemTitle>
+                    <List.ItemDescription>
+                      {beer.getIn(["brewery", "name"])}
+                    </List.ItemDescription>
+                  </List.Item>
+                );
+              })
+              .toJS();
+
+              return list.concat(brandBeers);
+            })
+          }
+        </List>
       </Layout.Content>
     );
-  }
-  _selectMarkerHandler (breweryId) {
-    return () => {
-      this.setState({ activeBreweryId: breweryId });
-    };
   }
 }
 

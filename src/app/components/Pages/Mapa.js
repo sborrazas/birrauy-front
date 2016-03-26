@@ -26,6 +26,12 @@ const TYPES_MAP = {
   ]
 };
 
+const FILTERS = {
+  "tiendas": "Tiendas",
+  "bares": "Bares",
+  "productores": "Productores"
+};
+
 class Mapa extends React.Component {
   constructor (props) {
     super(props);
@@ -38,8 +44,10 @@ class Mapa extends React.Component {
     var breweries = this.props.breweries
       , venues = this.props.venues
       , activeBreweryId = this.state.activeBreweryId
-      , activeTypes = TYPES_MAP[this.props.location.query.t]
       , activeBrewery = null
+      , activeType = this.props.location.query.t
+      , activeTypes = null
+      , banner = null
       , breweryPhoto = null
       , containerProps = null
       , markers = null;
@@ -74,7 +82,7 @@ class Mapa extends React.Component {
         );
       }
 
-      activeBrewery = (
+      banner = (
         <Layout.Banner>
           <Banner>
             {breweryPhoto}
@@ -87,24 +95,32 @@ class Mapa extends React.Component {
       );
     }
     else {
-      activeBrewery = (
+      banner = (
         <Layout.Banner>
           <Banner>
             <Filters>
-              <Filters.Item to="/" query={{ t: "tiendas" }}>
-                Tiendas
-              </Filters.Item>
-              <Filters.Item to="/" query={{ t: "bares" }}>
-                Bares
-              </Filters.Item>
-              <Filters.Item to="/" query={{ t: "productores" }}>
-                Productores
-              </Filters.Item>
+              {
+                Object.keys(FILTERS).map((key) => {
+                  const query = {};
+
+                  if (activeType !== key) {
+                    query.t = key;
+                  }
+
+                  return (
+                    <Filters.Item to="/" query={query} key={key}>
+                      {FILTERS[key]}
+                    </Filters.Item>
+                  );
+                })
+              }
             </Filters>
           </Banner>
         </Layout.Banner>
       );
     }
+
+    activeTypes = TYPES_MAP[activeType];
 
     markers = breweries
       .filter((brewery) => {
@@ -148,13 +164,13 @@ class Mapa extends React.Component {
       .toJS();
 
     return (
-      <Layout.Content withBanner={!!activeBrewery}>
+      <Layout.Content withBanner={true}>
         <GoogleMap containerProps={containerProps}
                    defaultCenter={DEFAULT_LOCATION}
                    defaultZoom={14}>
           {markers}
         </GoogleMap>
-        {activeBrewery}
+        {banner}
       </Layout.Content>
     );
   }

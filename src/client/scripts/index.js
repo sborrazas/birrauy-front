@@ -25309,6 +25309,12 @@
 	  "productores": ["Cervecería", "Marca"]
 	};
 
+	var FILTERS = {
+	  "tiendas": "Tiendas",
+	  "bares": "Bares",
+	  "productores": "Productores"
+	};
+
 	var Mapa = (function (_React$Component) {
 	  _inherits(Mapa, _React$Component);
 
@@ -25330,8 +25336,10 @@
 	      var breweries = this.props.breweries,
 	          venues = this.props.venues,
 	          activeBreweryId = this.state.activeBreweryId,
-	          activeTypes = TYPES_MAP[this.props.location.query.t],
 	          activeBrewery = null,
+	          activeType = this.props.location.query.t,
+	          activeTypes = null,
+	          banner = null,
 	          breweryPhoto = null,
 	          containerProps = null,
 	          markers = null;
@@ -25370,7 +25378,7 @@
 	          breweryPhoto = _react2["default"].createElement(_BaseBanner2["default"].Img, { src: activeBrewery.get("photo_prefix") + "height50" + activeBrewery.get("photo_suffix") });
 	        }
 
-	        activeBrewery = _react2["default"].createElement(
+	        banner = _react2["default"].createElement(
 	          _BaseLayout2["default"].Banner,
 	          null,
 	          _react2["default"].createElement(
@@ -25390,7 +25398,7 @@
 	          )
 	        );
 	      } else {
-	        activeBrewery = _react2["default"].createElement(
+	        banner = _react2["default"].createElement(
 	          _BaseLayout2["default"].Banner,
 	          null,
 	          _react2["default"].createElement(
@@ -25399,25 +25407,25 @@
 	            _react2["default"].createElement(
 	              _BaseFilters2["default"],
 	              null,
-	              _react2["default"].createElement(
-	                _BaseFilters2["default"].Item,
-	                { to: "/", query: { t: "tiendas" } },
-	                "Tiendas"
-	              ),
-	              _react2["default"].createElement(
-	                _BaseFilters2["default"].Item,
-	                { to: "/", query: { t: "bares" } },
-	                "Bares"
-	              ),
-	              _react2["default"].createElement(
-	                _BaseFilters2["default"].Item,
-	                { to: "/", query: { t: "productores" } },
-	                "Productores"
-	              )
+	              Object.keys(FILTERS).map(function (key) {
+	                var query = {};
+
+	                if (activeType !== key) {
+	                  query.t = key;
+	                }
+
+	                return _react2["default"].createElement(
+	                  _BaseFilters2["default"].Item,
+	                  { to: "/", query: query, key: key },
+	                  FILTERS[key]
+	                );
+	              })
 	            )
 	          )
 	        );
 	      }
+
+	      activeTypes = TYPES_MAP[activeType];
 
 	      markers = breweries.filter(function (brewery) {
 	        var type = brewery.get("brewery_type") || brewery.get("venue_type");
@@ -25455,7 +25463,7 @@
 
 	      return _react2["default"].createElement(
 	        _BaseLayout2["default"].Content,
-	        { withBanner: !!activeBrewery },
+	        { withBanner: true },
 	        _react2["default"].createElement(
 	          _reactGoogleMaps.GoogleMap,
 	          { containerProps: containerProps,
@@ -25463,7 +25471,7 @@
 	            defaultZoom: 14 },
 	          markers
 	        ),
-	        activeBrewery
+	        banner
 	      );
 	    }
 	  }, {

@@ -21,11 +21,14 @@ class NotFound extends React.Component {
 // <Route path="eventos" component={Eventos} name="eventos" />
 export default (
   <Router history={history}>
-    <Route name="root" path="/" component={Root}>
-      <Route path="cerveza" component={Cerveza} name="cerveza" />
-      <Route path="info" component={Info} name="info" />
-      <Route path="noticias" component={Noticias} name="noticias" />
+    <Route path="/" component={Root}>
+      <Route path="cerveza" component={Cerveza} />
+      <Route path="info" component={Info} />
+      <Route path="noticias" component={Noticias} />
+      <Route path="eventos" component={Noticias} />
+
       <IndexRoute component={Mapa} />
+
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

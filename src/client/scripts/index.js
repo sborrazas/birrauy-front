@@ -19891,10 +19891,11 @@
 	  { history: history },
 	  _react2["default"].createElement(
 	    _reactRouter.Route,
-	    { name: "root", path: "/", component: _Root2["default"] },
-	    _react2["default"].createElement(_reactRouter.Route, { path: "cerveza", component: _PagesCerveza2["default"], name: "cerveza" }),
-	    _react2["default"].createElement(_reactRouter.Route, { path: "info", component: _PagesInfo2["default"], name: "info" }),
-	    _react2["default"].createElement(_reactRouter.Route, { path: "noticias", component: _PagesNoticias2["default"], name: "noticias" }),
+	    { path: "/", component: _Root2["default"] },
+	    _react2["default"].createElement(_reactRouter.Route, { path: "cerveza", component: _PagesCerveza2["default"] }),
+	    _react2["default"].createElement(_reactRouter.Route, { path: "info", component: _PagesInfo2["default"] }),
+	    _react2["default"].createElement(_reactRouter.Route, { path: "noticias", component: _PagesNoticias2["default"] }),
+	    _react2["default"].createElement(_reactRouter.Route, { path: "eventos", component: _PagesNoticias2["default"] }),
 	    _react2["default"].createElement(_reactRouter.IndexRoute, { component: _PagesMapa2["default"] }),
 	    _react2["default"].createElement(_reactRouter.Route, { path: "*", component: NotFound })
 	  )
@@ -25176,12 +25177,21 @@
 	  _createClass(Item, [{
 	    key: "render",
 	    value: function render() {
-	      return _react2["default"].createElement(
-	        _reactRouter.Link,
-	        { to: this.props.to, className: "nav-item", activeClassName: "is-active" },
-	        _react2["default"].createElement(_Icon2["default"], { name: this.props.icon, className: "nav-itemIcon" }),
-	        this.props.children
-	      );
+	      if (this.props.to === "/") {
+	        return _react2["default"].createElement(
+	          _reactRouter.IndexLink,
+	          { to: this.props.to, className: "nav-item", activeClassName: "is-active" },
+	          _react2["default"].createElement(_Icon2["default"], { name: this.props.icon, className: "nav-itemIcon" }),
+	          this.props.children
+	        );
+	      } else {
+	        return _react2["default"].createElement(
+	          _reactRouter.Link,
+	          { to: this.props.to, className: "nav-item", activeClassName: "is-active" },
+	          _react2["default"].createElement(_Icon2["default"], { name: this.props.icon, className: "nav-itemIcon" }),
+	          this.props.children
+	        );
+	      }
 	    }
 	  }]);
 

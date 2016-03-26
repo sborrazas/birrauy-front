@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "./Icon";
-import { Link } from "react-router";
+import { Link, IndexLink } from "react-router";
 
 class Nav extends React.Component {
   render () {
@@ -12,12 +12,22 @@ class Nav extends React.Component {
 
 class Item extends React.Component {
   render () {
-    return (
-      <Link to={this.props.to} className="nav-item" activeClassName="is-active">
-        <Icon name={this.props.icon} className="nav-itemIcon" />
-        {this.props.children}
-      </Link>
-    );
+    if (this.props.to === "/") {
+      return (
+        <IndexLink to={this.props.to} className="nav-item" activeClassName="is-active">
+          <Icon name={this.props.icon} className="nav-itemIcon" />
+          {this.props.children}
+        </IndexLink>
+      );
+    }
+    else {
+      return (
+        <Link to={this.props.to} className="nav-item" activeClassName="is-active">
+          <Icon name={this.props.icon} className="nav-itemIcon" />
+          {this.props.children}
+        </Link>
+      );
+    }
   }
 }
 

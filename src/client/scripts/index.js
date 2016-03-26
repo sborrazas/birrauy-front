@@ -24756,6 +24756,7 @@
 	          _react2["default"].createElement(
 	            _BaseHeader2["default"],
 	            null,
+	            _react2["default"].createElement(_BaseHeader2["default"].Logo, { src: "/images/dondepinta-logo.png" }),
 	            _react2["default"].createElement(
 	              _BaseHeader2["default"].Title,
 	              null,
@@ -24772,13 +24773,28 @@
 	            null,
 	            _react2["default"].createElement(
 	              _BaseNav2["default"].Item,
+	              { to: "/cerveza", icon: "cerveza" },
+	              "Cerveza"
+	            ),
+	            _react2["default"].createElement(
+	              _BaseNav2["default"].Item,
+	              { to: "/info", icon: "info" },
+	              "Info"
+	            ),
+	            _react2["default"].createElement(
+	              _BaseNav2["default"].Item,
 	              { to: "/", icon: "mapa" },
 	              "Mapa"
 	            ),
 	            _react2["default"].createElement(
 	              _BaseNav2["default"].Item,
-	              { to: "info", icon: "info" },
-	              "Info"
+	              { to: "/eventos", icon: "eventos" },
+	              "Eventos"
+	            ),
+	            _react2["default"].createElement(
+	              _BaseNav2["default"].Item,
+	              { to: "/noticias", icon: "noticias" },
+	              "Noticias"
 	            )
 	          )
 	        )
@@ -25018,6 +25034,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(162);
+
 	var Header = (function (_React$Component) {
 	  _inherits(Header, _React$Component);
 
@@ -25064,7 +25082,31 @@
 	  return Title;
 	})(_react2["default"].Component);
 
+	var Logo = (function (_React$Component3) {
+	  _inherits(Logo, _React$Component3);
+
+	  function Logo() {
+	    _classCallCheck(this, Logo);
+
+	    _get(Object.getPrototypeOf(Logo.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Logo, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        _reactRouter.Link,
+	        { to: "/" },
+	        _react2["default"].createElement("img", { className: "header-logo", src: this.props.src })
+	      );
+	    }
+	  }]);
+
+	  return Logo;
+	})(_react2["default"].Component);
+
 	Header.Title = Title;
+	Header.Logo = Logo;
 
 	exports["default"] = Header;
 	module.exports = exports["default"];
@@ -25200,10 +25242,9 @@
 
 	      classes = _utilsDomClasses2["default"].set({
 	        "icon": true
-	      }, this.props.className);
+	      }, this.props.className, "icon--" + this.props.name);
 
-	      return _react2["default"].createElement("img", { className: classes,
-	        src: "/images/icons/" + this.props.name + ".svg" });
+	      return _react2["default"].createElement("i", { className: classes });
 	    }
 	  }]);
 
@@ -25250,6 +25291,10 @@
 
 	var _BaseBanner2 = _interopRequireDefault(_BaseBanner);
 
+	var _BaseFilters = __webpack_require__(278);
+
+	var _BaseFilters2 = _interopRequireDefault(_BaseFilters);
+
 	var _reactGoogleMaps = __webpack_require__(221);
 
 	var _utilsRelayJs = __webpack_require__(263);
@@ -25258,13 +25303,19 @@
 
 	var _configAppJs = __webpack_require__(265);
 
+	var TYPES_MAP = {
+	  "tiendas": ["Tienda"],
+	  "bares": ["Brewpub", "Restaurant", "Bar"],
+	  "productores": ["Cervecería", "Marca"]
+	};
+
 	var Mapa = (function (_React$Component) {
 	  _inherits(Mapa, _React$Component);
 
-	  function Mapa() {
+	  function Mapa(props) {
 	    _classCallCheck(this, Mapa);
 
-	    _get(Object.getPrototypeOf(Mapa.prototype), "constructor", this).call(this);
+	    _get(Object.getPrototypeOf(Mapa.prototype), "constructor", this).call(this, props);
 
 	    this.state = {
 	      activeBreweryId: null
@@ -25279,6 +25330,7 @@
 	      var breweries = this.props.breweries,
 	          venues = this.props.venues,
 	          activeBreweryId = this.state.activeBreweryId,
+	          activeTypes = TYPES_MAP[this.props.location.query.t],
 	          activeBrewery = null,
 	          breweryPhoto = null,
 	          containerProps = null,
@@ -25337,12 +25389,40 @@
 	            )
 	          )
 	        );
+	      } else {
+	        activeBrewery = _react2["default"].createElement(
+	          _BaseLayout2["default"].Banner,
+	          null,
+	          _react2["default"].createElement(
+	            _BaseBanner2["default"],
+	            null,
+	            _react2["default"].createElement(
+	              _BaseFilters2["default"],
+	              null,
+	              _react2["default"].createElement(
+	                _BaseFilters2["default"].Item,
+	                { to: "/", query: { t: "tiendas" } },
+	                "Tiendas"
+	              ),
+	              _react2["default"].createElement(
+	                _BaseFilters2["default"].Item,
+	                { to: "/", query: { t: "bares" } },
+	                "Bares"
+	              ),
+	              _react2["default"].createElement(
+	                _BaseFilters2["default"].Item,
+	                { to: "/", query: { t: "productores" } },
+	                "Productores"
+	              )
+	            )
+	          )
+	        );
 	      }
 
 	      markers = breweries.filter(function (brewery) {
 	        var type = brewery.get("brewery_type") || brewery.get("venue_type");
 
-	        return brewery.get("lat") && brewery.get("lng") && _configAppJs.BREWERY_TYPES.indexOf(type) !== -1;
+	        return brewery.get("lat") && brewery.get("lng") && _configAppJs.BREWERY_TYPES.indexOf(type) !== -1 && (!activeTypes || activeTypes.indexOf(type) !== -1);
 	      }).map(function (brewery) {
 	        var isActive = brewery.get("id") === activeBreweryId,
 	            type = brewery.get("brewery_type") || brewery.get("venue_type"),
@@ -37568,6 +37648,101 @@
 	  
 	  return curr;
 	};
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsDomClasses = __webpack_require__(215);
+
+	var _utilsDomClasses2 = _interopRequireDefault(_utilsDomClasses);
+
+	var _reactRouter = __webpack_require__(162);
+
+	var Filters = (function (_React$Component) {
+	  _inherits(Filters, _React$Component);
+
+	  function Filters() {
+	    _classCallCheck(this, Filters);
+
+	    _get(Object.getPrototypeOf(Filters.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Filters, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "nav",
+	        { className: "filters" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Filters;
+	})(_react2["default"].Component);
+
+	var Item = (function (_React$Component2) {
+	  _inherits(Item, _React$Component2);
+
+	  function Item() {
+	    _classCallCheck(this, Item);
+
+	    _get(Object.getPrototypeOf(Item.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Item, [{
+	    key: "render",
+	    value: function render() {
+	      var classes = null;
+
+	      classes = _utilsDomClasses2["default"].set({
+	        "filters-item": true
+	      });
+
+	      return _react2["default"].createElement(
+	        _reactRouter.Link,
+	        { className: classes,
+	          to: this.props.to,
+	          query: this.props.query,
+	          activeClassName: "is-active" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Item;
+	})(_react2["default"].Component);
+
+	Item.propTypes = {
+	  to: _react2["default"].PropTypes.string.isRequired,
+	  query: _react2["default"].PropTypes.object
+	};
+
+	Filters.Item = Item;
+
+	exports["default"] = Filters;
+	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);

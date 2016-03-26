@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../Base/Layout";
 import Banner from "../Base/Banner";
+import Filters from "../Base/Filters";
 import { GoogleMap, Marker } from "react-google-maps";
 import Relay from "../../../utils/Relay.js";
 import {
@@ -10,9 +11,24 @@ import {
   BREWERY_IMG_MAP
 } from "../../../../config/app.js";
 
+const TYPES_MAP = {
+  "tiendas": [
+    "Tienda"
+  ],
+  "bares": [
+    "Brewpub",
+    "Restaurant",
+    "Bar"
+  ],
+  "productores": [
+    "Cervecería",
+    "Marca"
+  ]
+};
+
 class Mapa extends React.Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
 
     this.state = {
       activeBreweryId: null
@@ -22,6 +38,7 @@ class Mapa extends React.Component {
     var breweries = this.props.breweries
       , venues = this.props.venues
       , activeBreweryId = this.state.activeBreweryId
+      , activeTypes = TYPES_MAP[this.props.location.query.t]
       , activeBrewery = null
       , breweryPhoto = null
       , containerProps = null
@@ -69,13 +86,33 @@ class Mapa extends React.Component {
         </Layout.Banner>
       );
     }
+    else {
+      activeBrewery = (
+        <Layout.Banner>
+          <Banner>
+            <Filters>
+              <Filters.Item to="/" query={{ t: "tiendas" }}>
+                Tiendas
+              </Filters.Item>
+              <Filters.Item to="/" query={{ t: "bares" }}>
+                Bares
+              </Filters.Item>
+              <Filters.Item to="/" query={{ t: "productores" }}>
+                Productores
+              </Filters.Item>
+            </Filters>
+          </Banner>
+        </Layout.Banner>
+      );
+    }
 
     markers = breweries
       .filter((brewery) => {
-        var type = brewery.get("brewery_type") || brewery.get("venue_type");
+        const type = brewery.get("brewery_type") || brewery.get("venue_type");
 
         return brewery.get("lat") && brewery.get("lng") &&
-          BREWERY_TYPES.indexOf(type) !== -1;
+          BREWERY_TYPES.indexOf(type) !== -1 &&
+          (!activeTypes || activeTypes.indexOf(type) !== -1);
       })
       .map((brewery) => {
         var isActive = brewery.get("id") === activeBreweryId

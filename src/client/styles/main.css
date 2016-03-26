@@ -202,3 +202,27 @@ body {
 .link:hover {
   color: #666;
 }
+
+/* filters ********************************************************************/
+.filters {
+  text-align: center;
+}
+
+.filters-item {
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 29px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 14px;
+  padding: 15px 22px;
+  position: relative;
+  text-decoration: none;
+  top: -2px;
+}
+
+.filters-item:hover,
+.filters-item.is-active,
+.filters-item:active {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}

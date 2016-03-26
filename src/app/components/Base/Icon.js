@@ -7,11 +7,10 @@ class Icon extends React.Component {
 
     classes = domClasses.set({
       "icon": true
-    }, this.props.className);
+    }, this.props.className, "icon--" + this.props.name);
 
     return (
-      <img className={classes}
-           src={"/images/icons/" + this.props.name + ".svg"} />
+      <i className={classes} />
     );
   }
 }

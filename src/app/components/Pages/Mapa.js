@@ -83,38 +83,13 @@ class Mapa extends React.Component {
       }
 
       banner = (
-        <Layout.Banner>
+        <Layout.Banner thirdary={true}>
           <Banner>
             {breweryPhoto}
             <Banner.Title>{activeBrewery.get("name")}</Banner.Title>
             <Banner.Description>
               {activeBrewery.get("address")}
             </Banner.Description>
-          </Banner>
-        </Layout.Banner>
-      );
-    }
-    else {
-      banner = (
-        <Layout.Banner>
-          <Banner>
-            <Filters>
-              {
-                Object.keys(FILTERS).map((key) => {
-                  const query = {};
-
-                  if (activeType !== key) {
-                    query.t = key;
-                  }
-
-                  return (
-                    <Filters.Item to="/" query={query} key={key}>
-                      {FILTERS[key]}
-                    </Filters.Item>
-                  );
-                })
-              }
-            </Filters>
           </Banner>
         </Layout.Banner>
       );
@@ -164,13 +139,34 @@ class Mapa extends React.Component {
       .toJS();
 
     return (
-      <Layout.Content withBanner={true}>
+      <Layout.Content withBanner={true} withSecondaryBanner={!!banner}>
         <GoogleMap containerProps={containerProps}
                    defaultCenter={DEFAULT_LOCATION}
                    defaultZoom={14}>
           {markers}
         </GoogleMap>
         {banner}
+        <Layout.Banner secondary={!banner}>
+          <Banner secondary={true}>
+            <Filters>
+              {
+                Object.keys(FILTERS).map((key) => {
+                  const query = {};
+
+                  if (activeType !== key) {
+                    query.t = key;
+                  }
+
+                  return (
+                    <Filters.Item to="/" query={query} key={key}>
+                      {FILTERS[key]}
+                    </Filters.Item>
+                  );
+                })
+              }
+            </Filters>
+          </Banner>
+        </Layout.Banner>
       </Layout.Content>
     );
   }

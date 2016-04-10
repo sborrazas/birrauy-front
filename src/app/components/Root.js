@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "./Base/Layout";
-import Header from "./Base/Header";
+import MainHeader from "./Base/MainHeader";
 import Nav from "./Base/Nav";
 import Mapa from "./Pages/Mapa";
 import Cerveza from "./Pages/Cerveza";
@@ -22,15 +22,15 @@ class Root extends React.Component {
     return (
       <Layout>
         <Layout.Header>
-          <Header>
-            <Header.Logo src="/images/dondepinta-logo.png" />
-            <Header.Title>Dónde pinta?</Header.Title>
-          </Header>
+          <MainHeader>
+            <MainHeader.Logo src="/images/dondepinta-logo.png" />
+            <MainHeader.Title>Dónde pinta?</MainHeader.Title>
+          </MainHeader>
         </Layout.Header>
         {this.props.children}
         <Layout.Footer>
           <Nav>
-            <Nav.Item to="/cerveza" icon="cerveza">Cerveza</Nav.Item>
+            <Nav.Item to="/cervezas" icon="cerveza">Cerveza</Nav.Item>
             <Nav.Item to="/info" icon="info">Info</Nav.Item>
             <Nav.Item to="/" icon="mapa">Mapa</Nav.Item>
             <Nav.Item to="/eventos" icon="eventos">Eventos</Nav.Item>

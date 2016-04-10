@@ -1,56 +1,58 @@
 import React from "react";
 import Layout from "../Base/Layout";
-import Banner from "../Base/Banner";
+import Header from "../Base/Header";
+import Details from "../Base/Details";
 import Relay from "../../../utils/Relay.js";
 import List from "../Base/List";
 
 class Cerveza extends React.Component {
-  constructor () {
-    super();
-
-    this.state = {
-      activeBreweryId: null
-    };
-  }
   render () {
-    var beers = this.props.beers
-      , beersByBrand = null;
+    const beerQuery = this.props.beer;
+    const beer = beerQuery.get("data");
 
-    if (beers.get("status") === "loading") {
+    if (beerQuery.get("status") === "loading") {
       return (<div>Loading</div>);
     }
 
-    beersByBrand = beers.get("data").groupBy((b) => b.get("brand"));
+    console.log(beer.toJS());
 
     return (
-      <Layout.Content withBanner={false}>
+      <Layout.Content detail={true}>
+        <Header>
+          <Header.Title>
+            {beer.get("brand")}
+            {" "}{beer.getIn(["style", "name"])}
+          </Header.Title>
+        </Header>
+        <Details>
+          <Details.Item>
+            <Details.Title>Tamaño</Details.Title>
+            {beer.get("size")}
+          </Details.Item>
+          <Details.Item>
+            <Details.Title>Amargura</Details.Title>
+            {beer.get("bitterness")}
+          </Details.Item>
+          <Details.Item>
+            <Details.Title>Alcohol</Details.Title>
+            {beer.get("alcohol")}
+          </Details.Item>
+          <Details.Item>
+            <Details.Title>Tirada</Details.Title>
+            {beer.get("draft") ? "Sí" : "No"}
+          </Details.Item>
+          <Details.Item>
+            <Details.Title>Color</Details.Title>
+            {beer.get("color")}
+          </Details.Item>
+          <Details.Item>
+            <Details.Title>Estilo</Details.Title>
+            {beer.getIn(["style", "name"]) || "–"}
+          </Details.Item>
+        </Details>
         <List>
-          {
-            beersByBrand.map((beers, brand) => {
-              const list = [
-                <List.Item key={"brand-" + brand} title={true}>
-                  {brand}
-                </List.Item>
-              ];
-              const brandBeers = beers.map((beer) => {
-                return (
-                  <List.Item key={beer.get("id")}>
-                    <List.ItemTitle>
-                      {beer.get("brand")}
-                      {" "}{beer.get(["style", "name"])}
-                      {" "}{beer.get("size")}
-                    </List.ItemTitle>
-                    <List.ItemDescription>
-                      {beer.getIn(["brewery", "name"])}
-                    </List.ItemDescription>
-                  </List.Item>
-                );
-              })
-              .toJS();
-
-              return list.concat(brandBeers);
-            })
-          }
+          <List.Item title={true}>Dónde conseguirla</List.Item>
+        <List.Item>{beer.getIn(["brewery", "name"])}</List.Item>
         </List>
       </Layout.Content>
     );
@@ -58,15 +60,15 @@ class Cerveza extends React.Component {
 }
 
 Cerveza.propTypes = {
-  beers: React.PropTypes.object.isRequired
+  beer: React.PropTypes.object.isRequired
 };
 
 export default Relay.createContainer(Cerveza, {
   queries: {
-    beers: {
-      info: function (params, request) {
+    beer: {
+      info: function (params) {
         return {
-          id: "/beers"
+          id: `/beers/${params.id}`
         };
       }
     }

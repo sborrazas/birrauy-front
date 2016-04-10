@@ -52,7 +52,7 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _utilsStoreJs = __webpack_require__(274);
+	var _utilsStoreJs = __webpack_require__(277);
 
 	var _utilsStoreJs2 = _interopRequireDefault(_utilsStoreJs);
 
@@ -19834,11 +19834,15 @@
 
 	var _Root2 = _interopRequireDefault(_Root);
 
+	var _PagesCervezas = __webpack_require__(274);
+
+	var _PagesCervezas2 = _interopRequireDefault(_PagesCervezas);
+
 	var _PagesCerveza = __webpack_require__(267);
 
 	var _PagesCerveza2 = _interopRequireDefault(_PagesCerveza);
 
-	var _PagesInfo = __webpack_require__(269);
+	var _PagesInfo = __webpack_require__(270);
 
 	var _PagesInfo2 = _interopRequireDefault(_PagesInfo);
 
@@ -19846,11 +19850,15 @@
 
 	var _PagesMapa2 = _interopRequireDefault(_PagesMapa);
 
-	var _PagesNoticias = __webpack_require__(268);
+	var _PagesNoticias = __webpack_require__(269);
 
 	var _PagesNoticias2 = _interopRequireDefault(_PagesNoticias);
 
-	var _historyLibCreateBrowserHistory = __webpack_require__(273);
+	var _PagesEventos = __webpack_require__(275);
+
+	var _PagesEventos2 = _interopRequireDefault(_PagesEventos);
+
+	var _historyLibCreateBrowserHistory = __webpack_require__(276);
 
 	var _historyLibCreateBrowserHistory2 = _interopRequireDefault(_historyLibCreateBrowserHistory);
 
@@ -19892,10 +19900,15 @@
 	  _react2["default"].createElement(
 	    _reactRouter.Route,
 	    { path: "/", component: _Root2["default"] },
-	    _react2["default"].createElement(_reactRouter.Route, { path: "cerveza", component: _PagesCerveza2["default"] }),
+	    _react2["default"].createElement(
+	      _reactRouter.Route,
+	      { path: "cervezas" },
+	      _react2["default"].createElement(_reactRouter.Route, { path: ":id", component: _PagesCerveza2["default"] }),
+	      _react2["default"].createElement(_reactRouter.IndexRoute, { component: _PagesCervezas2["default"] })
+	    ),
 	    _react2["default"].createElement(_reactRouter.Route, { path: "info", component: _PagesInfo2["default"] }),
 	    _react2["default"].createElement(_reactRouter.Route, { path: "noticias", component: _PagesNoticias2["default"] }),
-	    _react2["default"].createElement(_reactRouter.Route, { path: "eventos", component: _PagesNoticias2["default"] }),
+	    _react2["default"].createElement(_reactRouter.Route, { path: "eventos", component: _PagesEventos2["default"] }),
 	    _react2["default"].createElement(_reactRouter.IndexRoute, { component: _PagesMapa2["default"] }),
 	    _react2["default"].createElement(_reactRouter.Route, { path: "*", component: NotFound })
 	  )
@@ -24696,9 +24709,9 @@
 
 	var _BaseLayout2 = _interopRequireDefault(_BaseLayout);
 
-	var _BaseHeader = __webpack_require__(216);
+	var _BaseMainHeader = __webpack_require__(216);
 
-	var _BaseHeader2 = _interopRequireDefault(_BaseHeader);
+	var _BaseMainHeader2 = _interopRequireDefault(_BaseMainHeader);
 
 	var _BaseNav = __webpack_require__(217);
 
@@ -24712,11 +24725,11 @@
 
 	var _PagesCerveza2 = _interopRequireDefault(_PagesCerveza);
 
-	var _PagesNoticias = __webpack_require__(268);
+	var _PagesNoticias = __webpack_require__(269);
 
 	var _PagesNoticias2 = _interopRequireDefault(_PagesNoticias);
 
-	var _PagesInfo = __webpack_require__(269);
+	var _PagesInfo = __webpack_require__(270);
 
 	var _PagesInfo2 = _interopRequireDefault(_PagesInfo);
 
@@ -24755,11 +24768,11 @@
 	          _BaseLayout2["default"].Header,
 	          null,
 	          _react2["default"].createElement(
-	            _BaseHeader2["default"],
+	            _BaseMainHeader2["default"],
 	            null,
-	            _react2["default"].createElement(_BaseHeader2["default"].Logo, { src: "/images/dondepinta-logo.png" }),
+	            _react2["default"].createElement(_BaseMainHeader2["default"].Logo, { src: "/images/dondepinta-logo.png" }),
 	            _react2["default"].createElement(
-	              _BaseHeader2["default"].Title,
+	              _BaseMainHeader2["default"].Title,
 	              null,
 	              "Dónde pinta?"
 	            )
@@ -24774,7 +24787,7 @@
 	            null,
 	            _react2["default"].createElement(
 	              _BaseNav2["default"].Item,
-	              { to: "/cerveza", icon: "cerveza" },
+	              { to: "/cervezas", icon: "cerveza" },
 	              "Cerveza"
 	            ),
 	            _react2["default"].createElement(
@@ -24903,7 +24916,9 @@
 
 	      classes = _utilsDomClasses2["default"].set({
 	        "layout-content": true,
-	        "layout-content--withBanner": this.props.withBanner
+	        "layout-content--detail": this.props.detail,
+	        "layout-content--withBanner": this.props.withBanner,
+	        "layout-content--withSecondaryBanner": this.props.withSecondaryBanner
 	      });
 
 	      return _react2["default"].createElement(
@@ -24918,7 +24933,9 @@
 	})(_react2["default"].Component);
 
 	Content.propTypes = {
-	  withBanner: _react2["default"].PropTypes.bool
+	  detail: _react2["default"].PropTypes.bool,
+	  withBanner: _react2["default"].PropTypes.bool,
+	  withSecondaryBanner: _react2["default"].PropTypes.bool
 	};
 
 	var Banner = (function (_React$Component4) {
@@ -24933,9 +24950,17 @@
 	  _createClass(Banner, [{
 	    key: "render",
 	    value: function render() {
+	      var classes = null;
+
+	      classes = _utilsDomClasses2["default"].set({
+	        "layout-banner": true,
+	        "layout-banner--secondary": this.props.secondary,
+	        "layout-banner--thirdary": this.props.thirdary
+	      });
+
 	      return _react2["default"].createElement(
 	        "div",
-	        { className: "layout-banner" },
+	        { className: classes },
 	        this.props.children
 	      );
 	    }
@@ -24943,6 +24968,10 @@
 
 	  return Banner;
 	})(_react2["default"].Component);
+
+	Banner.propTypes = {
+	  secondary: _react2["default"].PropTypes.bool
+	};
 
 	var Footer = (function (_React$Component5) {
 	  _inherits(Footer, _React$Component5);
@@ -25037,27 +25066,27 @@
 
 	var _reactRouter = __webpack_require__(162);
 
-	var Header = (function (_React$Component) {
-	  _inherits(Header, _React$Component);
+	var MainHeader = (function (_React$Component) {
+	  _inherits(MainHeader, _React$Component);
 
-	  function Header() {
-	    _classCallCheck(this, Header);
+	  function MainHeader() {
+	    _classCallCheck(this, MainHeader);
 
-	    _get(Object.getPrototypeOf(Header.prototype), "constructor", this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(MainHeader.prototype), "constructor", this).apply(this, arguments);
 	  }
 
-	  _createClass(Header, [{
+	  _createClass(MainHeader, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2["default"].createElement(
 	        "header",
-	        { className: "header" },
+	        { className: "mainHeader" },
 	        this.props.children
 	      );
 	    }
 	  }]);
 
-	  return Header;
+	  return MainHeader;
 	})(_react2["default"].Component);
 
 	var Title = (function (_React$Component2) {
@@ -25074,7 +25103,7 @@
 	    value: function render() {
 	      return _react2["default"].createElement(
 	        "h1",
-	        { className: "header-title" },
+	        { className: "mainHeader-title" },
 	        this.props.children
 	      );
 	    }
@@ -25098,7 +25127,7 @@
 	      return _react2["default"].createElement(
 	        _reactRouter.Link,
 	        { to: "/" },
-	        _react2["default"].createElement("img", { className: "header-logo", src: this.props.src })
+	        _react2["default"].createElement("img", { className: "mainHeader-logo", src: this.props.src })
 	      );
 	    }
 	  }]);
@@ -25106,10 +25135,10 @@
 	  return Logo;
 	})(_react2["default"].Component);
 
-	Header.Title = Title;
-	Header.Logo = Logo;
+	MainHeader.Title = Title;
+	MainHeader.Logo = Logo;
 
-	exports["default"] = Header;
+	exports["default"] = MainHeader;
 	module.exports = exports["default"];
 
 /***/ },
@@ -25390,7 +25419,7 @@
 
 	        banner = _react2["default"].createElement(
 	          _BaseLayout2["default"].Banner,
-	          null,
+	          { thirdary: true },
 	          _react2["default"].createElement(
 	            _BaseBanner2["default"],
 	            null,
@@ -25404,32 +25433,6 @@
 	              _BaseBanner2["default"].Description,
 	              null,
 	              activeBrewery.get("address")
-	            )
-	          )
-	        );
-	      } else {
-	        banner = _react2["default"].createElement(
-	          _BaseLayout2["default"].Banner,
-	          null,
-	          _react2["default"].createElement(
-	            _BaseBanner2["default"],
-	            null,
-	            _react2["default"].createElement(
-	              _BaseFilters2["default"],
-	              null,
-	              Object.keys(FILTERS).map(function (key) {
-	                var query = {};
-
-	                if (activeType !== key) {
-	                  query.t = key;
-	                }
-
-	                return _react2["default"].createElement(
-	                  _BaseFilters2["default"].Item,
-	                  { to: "/", query: query, key: key },
-	                  FILTERS[key]
-	                );
-	              })
 	            )
 	          )
 	        );
@@ -25473,7 +25476,7 @@
 
 	      return _react2["default"].createElement(
 	        _BaseLayout2["default"].Content,
-	        { withBanner: true },
+	        { withBanner: true, withSecondaryBanner: !!banner },
 	        _react2["default"].createElement(
 	          _reactGoogleMaps.GoogleMap,
 	          { containerProps: containerProps,
@@ -25481,7 +25484,32 @@
 	            defaultZoom: 14 },
 	          markers
 	        ),
-	        banner
+	        banner,
+	        _react2["default"].createElement(
+	          _BaseLayout2["default"].Banner,
+	          { secondary: !banner },
+	          _react2["default"].createElement(
+	            _BaseBanner2["default"],
+	            { secondary: true },
+	            _react2["default"].createElement(
+	              _BaseFilters2["default"],
+	              null,
+	              Object.keys(FILTERS).map(function (key) {
+	                var query = {};
+
+	                if (activeType !== key) {
+	                  query.t = key;
+	                }
+
+	                return _react2["default"].createElement(
+	                  _BaseFilters2["default"].Item,
+	                  { to: "/", query: query, key: key },
+	                  FILTERS[key]
+	                );
+	              })
+	            )
+	          )
+	        )
 	      );
 	    }
 	  }, {
@@ -25547,6 +25575,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _utilsDomClasses = __webpack_require__(215);
+
+	var _utilsDomClasses2 = _interopRequireDefault(_utilsDomClasses);
+
 	var Banner = (function (_React$Component) {
 	  _inherits(Banner, _React$Component);
 
@@ -25559,9 +25591,16 @@
 	  _createClass(Banner, [{
 	    key: "render",
 	    value: function render() {
+	      var classes = null;
+
+	      classes = _utilsDomClasses2["default"].set({
+	        "banner": true,
+	        "banner--secondary": this.props.secondary
+	      });
+
 	      return _react2["default"].createElement(
 	        "header",
-	        { className: "banner" },
+	        { className: classes },
 	        this.props.children
 	      );
 	    }
@@ -25569,6 +25608,10 @@
 
 	  return Banner;
 	})(_react2["default"].Component);
+
+	Banner.propTypes = {
+	  secondary: _react2["default"].PropTypes.bool
+	};
 
 	var Title = (function (_React$Component2) {
 	  _inherits(Title, _React$Component2);
@@ -29608,11 +29651,13 @@
 	      }, {
 	        key: "_getStoreData",
 	        value: function _getStoreData(params) {
+	          var _this = this;
+
 	          var store = this.context.store,
 	              data = {};
 
 	          queries.forEach(function (query, name) {
-	            data[name] = store.fetchQuery(query, params);
+	            data[name] = store.fetchQuery(query, _this.props.params);
 	          });
 
 	          return data;
@@ -34653,15 +34698,19 @@
 
 	var _BaseLayout2 = _interopRequireDefault(_BaseLayout);
 
-	var _BaseBanner = __webpack_require__(220);
+	var _BaseHeader = __webpack_require__(282);
 
-	var _BaseBanner2 = _interopRequireDefault(_BaseBanner);
+	var _BaseHeader2 = _interopRequireDefault(_BaseHeader);
+
+	var _BaseDetails = __webpack_require__(283);
+
+	var _BaseDetails2 = _interopRequireDefault(_BaseDetails);
 
 	var _utilsRelayJs = __webpack_require__(264);
 
 	var _utilsRelayJs2 = _interopRequireDefault(_utilsRelayJs);
 
-	var _BaseList = __webpack_require__(279);
+	var _BaseList = __webpack_require__(268);
 
 	var _BaseList2 = _interopRequireDefault(_BaseList);
 
@@ -34671,20 +34720,16 @@
 	  function Cerveza() {
 	    _classCallCheck(this, Cerveza);
 
-	    _get(Object.getPrototypeOf(Cerveza.prototype), "constructor", this).call(this);
-
-	    this.state = {
-	      activeBreweryId: null
-	    };
+	    _get(Object.getPrototypeOf(Cerveza.prototype), "constructor", this).apply(this, arguments);
 	  }
 
 	  _createClass(Cerveza, [{
 	    key: "render",
 	    value: function render() {
-	      var beers = this.props.beers,
-	          beersByBrand = null;
+	      var beerQuery = this.props.beer;
+	      var beer = beerQuery.get("data");
 
-	      if (beers.get("status") === "loading") {
+	      if (beerQuery.get("status") === "loading") {
 	        return _react2["default"].createElement(
 	          "div",
 	          null,
@@ -34692,45 +34737,99 @@
 	        );
 	      }
 
-	      beersByBrand = beers.get("data").groupBy(function (b) {
-	        return b.get("brand");
-	      });
+	      console.log(beer.toJS());
 
 	      return _react2["default"].createElement(
 	        _BaseLayout2["default"].Content,
-	        { withBanner: false },
+	        { detail: true },
+	        _react2["default"].createElement(
+	          _BaseHeader2["default"],
+	          null,
+	          _react2["default"].createElement(
+	            _BaseHeader2["default"].Title,
+	            null,
+	            beer.get("brand"),
+	            " ",
+	            beer.getIn(["style", "name"])
+	          )
+	        ),
+	        _react2["default"].createElement(
+	          _BaseDetails2["default"],
+	          null,
+	          _react2["default"].createElement(
+	            _BaseDetails2["default"].Item,
+	            null,
+	            _react2["default"].createElement(
+	              _BaseDetails2["default"].Title,
+	              null,
+	              "Tamaño"
+	            ),
+	            beer.get("size")
+	          ),
+	          _react2["default"].createElement(
+	            _BaseDetails2["default"].Item,
+	            null,
+	            _react2["default"].createElement(
+	              _BaseDetails2["default"].Title,
+	              null,
+	              "Amargura"
+	            ),
+	            beer.get("bitterness")
+	          ),
+	          _react2["default"].createElement(
+	            _BaseDetails2["default"].Item,
+	            null,
+	            _react2["default"].createElement(
+	              _BaseDetails2["default"].Title,
+	              null,
+	              "Alcohol"
+	            ),
+	            beer.get("alcohol")
+	          ),
+	          _react2["default"].createElement(
+	            _BaseDetails2["default"].Item,
+	            null,
+	            _react2["default"].createElement(
+	              _BaseDetails2["default"].Title,
+	              null,
+	              "Tirada"
+	            ),
+	            beer.get("draft") ? "Sí" : "No"
+	          ),
+	          _react2["default"].createElement(
+	            _BaseDetails2["default"].Item,
+	            null,
+	            _react2["default"].createElement(
+	              _BaseDetails2["default"].Title,
+	              null,
+	              "Color"
+	            ),
+	            beer.get("color")
+	          ),
+	          _react2["default"].createElement(
+	            _BaseDetails2["default"].Item,
+	            null,
+	            _react2["default"].createElement(
+	              _BaseDetails2["default"].Title,
+	              null,
+	              "Estilo"
+	            ),
+	            beer.getIn(["style", "name"]) || "–"
+	          )
+	        ),
 	        _react2["default"].createElement(
 	          _BaseList2["default"],
 	          null,
-	          beersByBrand.map(function (beers, brand) {
-	            var list = [_react2["default"].createElement(
-	              _BaseList2["default"].Item,
-	              { key: "brand-" + brand, title: true },
-	              brand
-	            )];
-	            var brandBeers = beers.map(function (beer) {
-	              return _react2["default"].createElement(
-	                _BaseList2["default"].Item,
-	                { key: beer.get("id") },
-	                _react2["default"].createElement(
-	                  _BaseList2["default"].ItemTitle,
-	                  null,
-	                  beer.get("brand"),
-	                  " ",
-	                  beer.get(["style", "name"]),
-	                  " ",
-	                  beer.get("size")
-	                ),
-	                _react2["default"].createElement(
-	                  _BaseList2["default"].ItemDescription,
-	                  null,
-	                  beer.getIn(["brewery", "name"])
-	                )
-	              );
-	            }).toJS();
-
-	            return list.concat(brandBeers);
-	          })
+	          _react2["default"].createElement(
+	            _BaseList2["default"].Item,
+	            { title: true },
+	            "Dónde conseguirla"
+	          ),
+	          _react2["default"].createElement(
+	            _BaseList2["default"].Item,
+	            null,
+	            beer.getIn(["brewery", "name"])
+	          )
 	        )
 	      );
 	    }
@@ -34740,15 +34839,15 @@
 	})(_react2["default"].Component);
 
 	Cerveza.propTypes = {
-	  beers: _react2["default"].PropTypes.object.isRequired
+	  beer: _react2["default"].PropTypes.object.isRequired
 	};
 
 	exports["default"] = _utilsRelayJs2["default"].createContainer(Cerveza, {
 	  queries: {
-	    beers: {
-	      info: function info(params, request) {
+	    beer: {
+	      info: function info(params) {
 	        return {
-	          id: "/beers"
+	          id: "/beers/" + params.id
 	        };
 	      }
 	    }
@@ -34758,6 +34857,157 @@
 
 /***/ },
 /* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsDomClasses = __webpack_require__(215);
+
+	var _utilsDomClasses2 = _interopRequireDefault(_utilsDomClasses);
+
+	var _reactRouter = __webpack_require__(162);
+
+	var List = (function (_React$Component) {
+	  _inherits(List, _React$Component);
+
+	  function List() {
+	    _classCallCheck(this, List);
+
+	    _get(Object.getPrototypeOf(List.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(List, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "list" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return List;
+	})(_react2["default"].Component);
+
+	List.propTypes = {};
+
+	var Item = (function (_React$Component2) {
+	  _inherits(Item, _React$Component2);
+
+	  function Item() {
+	    _classCallCheck(this, Item);
+
+	    _get(Object.getPrototypeOf(Item.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Item, [{
+	    key: "render",
+	    value: function render() {
+	      var classes = null;
+
+	      classes = _utilsDomClasses2["default"].set({
+	        "list-item": true,
+	        "list-item--title": this.props.title,
+	        "list-item--link": this.props.to
+	      });
+
+	      if (this.props.to) {
+	        return _react2["default"].createElement(
+	          _reactRouter.Link,
+	          { className: classes, to: this.props.to },
+	          this.props.children
+	        );
+	      } else {
+	        return _react2["default"].createElement(
+	          "div",
+	          { className: classes },
+	          this.props.children
+	        );
+	      }
+	    }
+	  }]);
+
+	  return Item;
+	})(_react2["default"].Component);
+
+	Item.propTypes = {
+	  title: _react2["default"].PropTypes.bool
+	};
+
+	var ItemTitle = (function (_React$Component3) {
+	  _inherits(ItemTitle, _React$Component3);
+
+	  function ItemTitle() {
+	    _classCallCheck(this, ItemTitle);
+
+	    _get(Object.getPrototypeOf(ItemTitle.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(ItemTitle, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "list-itemTitle" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return ItemTitle;
+	})(_react2["default"].Component);
+
+	var ItemDescription = (function (_React$Component4) {
+	  _inherits(ItemDescription, _React$Component4);
+
+	  function ItemDescription() {
+	    _classCallCheck(this, ItemDescription);
+
+	    _get(Object.getPrototypeOf(ItemDescription.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(ItemDescription, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "list-itemDescription" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return ItemDescription;
+	})(_react2["default"].Component);
+
+	List.Item = Item;
+	List.ItemTitle = ItemTitle;
+	List.ItemDescription = ItemDescription;
+
+	exports["default"] = List;
+	module.exports = exports["default"];
+
+/***/ },
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34948,7 +35198,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 269 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34975,19 +35225,15 @@
 
 	var _BaseLayout2 = _interopRequireDefault(_BaseLayout);
 
-	var _BaseHeader = __webpack_require__(216);
-
-	var _BaseHeader2 = _interopRequireDefault(_BaseHeader);
-
-	var _BaseAbout = __webpack_require__(270);
+	var _BaseAbout = __webpack_require__(271);
 
 	var _BaseAbout2 = _interopRequireDefault(_BaseAbout);
 
-	var _BaseText = __webpack_require__(271);
+	var _BaseText = __webpack_require__(272);
 
 	var _BaseText2 = _interopRequireDefault(_BaseText);
 
-	var _BaseLink = __webpack_require__(272);
+	var _BaseLink = __webpack_require__(273);
 
 	var _BaseLink2 = _interopRequireDefault(_BaseLink);
 
@@ -35280,7 +35526,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 270 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35437,7 +35683,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 271 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35491,7 +35737,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 272 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35545,7 +35791,335 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 273 */
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _BaseLayout = __webpack_require__(214);
+
+	var _BaseLayout2 = _interopRequireDefault(_BaseLayout);
+
+	var _BaseBanner = __webpack_require__(220);
+
+	var _BaseBanner2 = _interopRequireDefault(_BaseBanner);
+
+	var _utilsRelayJs = __webpack_require__(264);
+
+	var _utilsRelayJs2 = _interopRequireDefault(_utilsRelayJs);
+
+	var _BaseList = __webpack_require__(268);
+
+	var _BaseList2 = _interopRequireDefault(_BaseList);
+
+	var Cervezas = (function (_React$Component) {
+	  _inherits(Cervezas, _React$Component);
+
+	  function Cervezas() {
+	    _classCallCheck(this, Cervezas);
+
+	    _get(Object.getPrototypeOf(Cervezas.prototype), "constructor", this).call(this);
+
+	    this.state = {
+	      activeBreweryId: null
+	    };
+	  }
+
+	  _createClass(Cervezas, [{
+	    key: "render",
+	    value: function render() {
+	      var beers = this.props.beers,
+	          beersByBrand = null;
+
+	      if (beers.get("status") === "loading") {
+	        return _react2["default"].createElement(
+	          "div",
+	          null,
+	          "Loading"
+	        );
+	      }
+
+	      beersByBrand = beers.get("data").groupBy(function (b) {
+	        return b.get("brand");
+	      });
+
+	      return _react2["default"].createElement(
+	        _BaseLayout2["default"].Content,
+	        null,
+	        _react2["default"].createElement(
+	          _BaseList2["default"],
+	          null,
+	          beersByBrand.keySeq().map(function (brand) {
+	            var beers = beersByBrand.get(brand);
+
+	            var list = [_react2["default"].createElement(
+	              _BaseList2["default"].Item,
+	              { key: "brand-" + brand, title: true },
+	              brand
+	            )];
+
+	            var brandBeers = beers.map(function (beer) {
+	              var id = beer.get("id");
+
+	              return _react2["default"].createElement(
+	                _BaseList2["default"].Item,
+	                { key: id, to: "/cervezas/" + id },
+	                _react2["default"].createElement(
+	                  _BaseList2["default"].ItemTitle,
+	                  null,
+	                  brand,
+	                  " ",
+	                  beer.getIn(["style", "name"]),
+	                  " ",
+	                  beer.get("size")
+	                ),
+	                _react2["default"].createElement(
+	                  _BaseList2["default"].ItemDescription,
+	                  null,
+	                  beer.getIn(["brewery", "name"])
+	                )
+	              );
+	            }).toJS();
+
+	            return list.concat(brandBeers);
+	          }).toJS()
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Cervezas;
+	})(_react2["default"].Component);
+
+	Cervezas.propTypes = {
+	  beers: _react2["default"].PropTypes.object.isRequired
+	};
+
+	exports["default"] = _utilsRelayJs2["default"].createContainer(Cervezas, {
+	  queries: {
+	    beers: {
+	      info: function info(params, request) {
+	        return {
+	          id: "/beers"
+	        };
+	      }
+	    }
+	  }
+	});
+	module.exports = exports["default"];
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _BaseLayout = __webpack_require__(214);
+
+	var _BaseLayout2 = _interopRequireDefault(_BaseLayout);
+
+	var _BaseBanner = __webpack_require__(220);
+
+	var _BaseBanner2 = _interopRequireDefault(_BaseBanner);
+
+	var _reactGoogleMaps = __webpack_require__(222);
+
+	var _utilsRelayJs = __webpack_require__(264);
+
+	var _utilsRelayJs2 = _interopRequireDefault(_utilsRelayJs);
+
+	var _configAppJs = __webpack_require__(266);
+
+	var Eventos = (function (_React$Component) {
+	  _inherits(Eventos, _React$Component);
+
+	  function Eventos() {
+	    _classCallCheck(this, Eventos);
+
+	    _get(Object.getPrototypeOf(Eventos.prototype), "constructor", this).call(this);
+
+	    this.state = {
+	      activeBreweryId: null
+	    };
+	  }
+
+	  _createClass(Eventos, [{
+	    key: "render",
+	    value: function render() {
+	      var _this = this;
+
+	      console.log(this.props.news);
+	      return _react2["default"].createElement(
+	        "div",
+	        null,
+	        "a"
+	      );
+
+	      var breweries = this.props.breweries,
+	          activeBreweryId = this.state.activeBreweryId,
+	          activeBrewery = null,
+	          breweryPhoto = null,
+	          containerProps = null,
+	          markers = null;
+
+	      containerProps = {
+	        style: {
+	          height: "100%"
+	        }
+	      };
+
+	      if (breweries.get("status") === "loading") {
+	        return _react2["default"].createElement(
+	          "div",
+	          null,
+	          "Loading"
+	        );
+	      }
+
+	      if (activeBreweryId) {
+	        activeBrewery = breweries.get("data").find(function (brewery) {
+	          return brewery.get("id") === activeBreweryId;
+	        });
+
+	        if (activeBrewery.get("photo_suffix")) {
+	          breweryPhoto = _react2["default"].createElement(_BaseBanner2["default"].Img, { src: activeBrewery.get("photo_prefix") + "height50" + activeBrewery.get("photo_suffix") });
+	        }
+
+	        activeBrewery = _react2["default"].createElement(
+	          _BaseLayout2["default"].Banner,
+	          null,
+	          _react2["default"].createElement(
+	            _BaseBanner2["default"],
+	            null,
+	            breweryPhoto,
+	            _react2["default"].createElement(
+	              _BaseBanner2["default"].Title,
+	              null,
+	              activeBrewery.get("name")
+	            ),
+	            _react2["default"].createElement(
+	              _BaseBanner2["default"].Description,
+	              null,
+	              activeBrewery.get("address")
+	            )
+	          )
+	        );
+	      }
+
+	      markers = breweries.get("data").filter(function (brewery) {
+	        return brewery.get("lat") && brewery.get("lng") && _configAppJs.BREWERY_TYPES.indexOf(brewery.get("brewery_type")) !== -1;
+	      }).map(function (brewery) {
+	        var isActive = brewery.get("id") === activeBreweryId,
+	            imgKey = _configAppJs.BREWERY_IMG_MAP[brewery.get("brewery_type")],
+	            position = null,
+	            icon = null;
+
+	        if (isActive) {
+	          imgKey += "-active";
+	        }
+
+	        position = {
+	          lat: parseFloat(brewery.get("lat")),
+	          lng: parseFloat(brewery.get("lng"))
+	        };
+	        icon = {
+	          url: _configAppJs.IMAGES_URL + imgKey + ".png",
+	          scaledSize: {
+	            width: 34,
+	            height: 45
+	          }
+	        };
+
+	        return _react2["default"].createElement(_reactGoogleMaps.Marker, { key: brewery.get("id"),
+	          position: position,
+	          defaultAnimation: 2,
+	          icon: icon,
+	          onClick: _this._selectMarkerHandler(brewery.get("id")) });
+	      }).toJS();
+
+	      return _react2["default"].createElement(
+	        _BaseLayout2["default"].Content,
+	        { withBanner: !!activeBrewery },
+	        _react2["default"].createElement(
+	          _reactGoogleMaps.GoogleMap,
+	          { containerProps: containerProps,
+	            defaultCenter: _configAppJs.DEFAULT_LOCATION,
+	            defaultZoom: 14 },
+	          markers
+	        ),
+	        activeBrewery
+	      );
+	    }
+	  }, {
+	    key: "_selectMarkerHandler",
+	    value: function _selectMarkerHandler(breweryId) {
+	      var _this2 = this;
+
+	      return function () {
+	        _this2.setState({ activeBreweryId: breweryId });
+	      };
+	    }
+	  }]);
+
+	  return Eventos;
+	})(_react2["default"].Component);
+
+	Eventos.propTypes = {
+	  news: _react2["default"].PropTypes.object.isRequired
+	};
+
+	exports["default"] = _utilsRelayJs2["default"].createContainer(Eventos, {
+	  queries: {
+	    news: {
+	      info: function info(params, request) {
+	        return {
+	          id: "/events",
+	          local: true
+	        };
+	      }
+	    }
+	  }
+	});
+	module.exports = exports["default"];
+
+/***/ },
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35723,7 +36297,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 274 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35738,13 +36312,13 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _events = __webpack_require__(275);
+	var _events = __webpack_require__(278);
 
 	var _events2 = _interopRequireDefault(_events);
 
 	var _immutable = __webpack_require__(265);
 
-	var _superagent = __webpack_require__(276);
+	var _superagent = __webpack_require__(279);
 
 	var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -35763,7 +36337,6 @@
 
 	    _get(Object.getPrototypeOf(Store.prototype), "constructor", this).call(this);
 	    this._state = new _immutable.Map();
-	    this._request = new _immutable.Map();
 	  }
 
 	  _createClass(Store, [{
@@ -35777,15 +36350,9 @@
 	      this.removeListener("change", callback);
 	    }
 	  }, {
-	    key: "setRequest",
-	    value: function setRequest(request) {
-	      this._request = request;
-	      this.emit("change");
-	    }
-	  }, {
 	    key: "fetchQuery",
 	    value: function fetchQuery(query, params) {
-	      return this._fetchResource(query.info(params, this._request));
+	      return this._fetchResource(query.info(params));
 	    }
 	  }, {
 	    key: "fetchMutator",
@@ -36120,7 +36687,7 @@
 	module.exports = Store;
 
 /***/ },
-/* 275 */
+/* 278 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -36424,15 +36991,15 @@
 
 
 /***/ },
-/* 276 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 
-	var Emitter = __webpack_require__(277);
-	var reduce = __webpack_require__(278);
+	var Emitter = __webpack_require__(280);
+	var reduce = __webpack_require__(281);
 
 	/**
 	 * Root reference for iframes.
@@ -37587,7 +38154,7 @@
 
 
 /***/ },
-/* 277 */
+/* 280 */
 /***/ function(module, exports) {
 
 	
@@ -37757,7 +38324,7 @@
 
 
 /***/ },
-/* 278 */
+/* 281 */
 /***/ function(module, exports) {
 
 	
@@ -37786,7 +38353,7 @@
 	};
 
 /***/ },
-/* 279 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37809,34 +38376,107 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utilsDomClasses = __webpack_require__(215);
+	var _reactRouter = __webpack_require__(162);
 
-	var _utilsDomClasses2 = _interopRequireDefault(_utilsDomClasses);
+	var Header = (function (_React$Component) {
+	  _inherits(Header, _React$Component);
 
-	var List = (function (_React$Component) {
-	  _inherits(List, _React$Component);
+	  function Header() {
+	    _classCallCheck(this, Header);
 
-	  function List() {
-	    _classCallCheck(this, List);
-
-	    _get(Object.getPrototypeOf(List.prototype), "constructor", this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(Header.prototype), "constructor", this).apply(this, arguments);
 	  }
 
-	  _createClass(List, [{
+	  _createClass(Header, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2["default"].createElement(
-	        "ul",
-	        { className: "list" },
+	        "header",
+	        { className: "header" },
 	        this.props.children
 	      );
 	    }
 	  }]);
 
-	  return List;
+	  return Header;
 	})(_react2["default"].Component);
 
-	List.propTypes = {};
+	var Title = (function (_React$Component2) {
+	  _inherits(Title, _React$Component2);
+
+	  function Title() {
+	    _classCallCheck(this, Title);
+
+	    _get(Object.getPrototypeOf(Title.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Title, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "h1",
+	        { className: "header-title" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Title;
+	})(_react2["default"].Component);
+
+	Header.Title = Title;
+
+	exports["default"] = Header;
+	module.exports = exports["default"];
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(162);
+
+	var Details = (function (_React$Component) {
+	  _inherits(Details, _React$Component);
+
+	  function Details() {
+	    _classCallCheck(this, Details);
+
+	    _get(Object.getPrototypeOf(Details.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Details, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "details" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Details;
+	})(_react2["default"].Component);
 
 	var Item = (function (_React$Component2) {
 	  _inherits(Item, _React$Component2);
@@ -37850,16 +38490,9 @@
 	  _createClass(Item, [{
 	    key: "render",
 	    value: function render() {
-	      var classes = null;
-
-	      classes = _utilsDomClasses2["default"].set({
-	        "list-item": true,
-	        "list-item--title": this.props.title
-	      });
-
 	      return _react2["default"].createElement(
-	        "li",
-	        { className: classes },
+	        "div",
+	        { className: "details-item" },
 	        this.props.children
 	      );
 	    }
@@ -37868,61 +38501,33 @@
 	  return Item;
 	})(_react2["default"].Component);
 
-	Item.propTypes = {
-	  title: _react2["default"].PropTypes.bool
-	};
+	var Title = (function (_React$Component3) {
+	  _inherits(Title, _React$Component3);
 
-	var ItemTitle = (function (_React$Component3) {
-	  _inherits(ItemTitle, _React$Component3);
+	  function Title() {
+	    _classCallCheck(this, Title);
 
-	  function ItemTitle() {
-	    _classCallCheck(this, ItemTitle);
-
-	    _get(Object.getPrototypeOf(ItemTitle.prototype), "constructor", this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(Title.prototype), "constructor", this).apply(this, arguments);
 	  }
 
-	  _createClass(ItemTitle, [{
+	  _createClass(Title, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2["default"].createElement(
-	        "div",
-	        { className: "list-itemTitle" },
+	        "span",
+	        { className: "details-title" },
 	        this.props.children
 	      );
 	    }
 	  }]);
 
-	  return ItemTitle;
+	  return Title;
 	})(_react2["default"].Component);
 
-	var ItemDescription = (function (_React$Component4) {
-	  _inherits(ItemDescription, _React$Component4);
+	Details.Item = Item;
+	Details.Title = Title;
 
-	  function ItemDescription() {
-	    _classCallCheck(this, ItemDescription);
-
-	    _get(Object.getPrototypeOf(ItemDescription.prototype), "constructor", this).apply(this, arguments);
-	  }
-
-	  _createClass(ItemDescription, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2["default"].createElement(
-	        "div",
-	        { className: "list-itemDescription" },
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return ItemDescription;
-	})(_react2["default"].Component);
-
-	List.Item = Item;
-	List.ItemTitle = ItemTitle;
-	List.ItemDescription = ItemDescription;
-
-	exports["default"] = List;
+	exports["default"] = Details;
 	module.exports = exports["default"];
 
 /***/ }

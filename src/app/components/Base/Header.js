@@ -17,15 +17,6 @@ class Title extends React.Component {
   }
 }
 
-class Logo extends React.Component {
-  render () {
-    return (
-      <Link to="/"><img className="header-logo" src={this.props.src} /></Link>
-    );
-  }
-}
-
 Header.Title = Title;
-Header.Logo = Logo;
 
 export default Header;

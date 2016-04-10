@@ -1,6 +1,7 @@
 import React from "react";
 import { Router, Route, IndexRoute, NotFoundRoute } from "react-router";
 import Root from "../Root";
+import Cervezas from "../Pages/Cervezas";
 import Cerveza from "../Pages/Cerveza";
 import Info from "../Pages/Info";
 import Mapa from "../Pages/Mapa";
@@ -22,7 +23,10 @@ class NotFound extends React.Component {
 export default (
   <Router history={history}>
     <Route path="/" component={Root}>
-      <Route path="cerveza" component={Cerveza} />
+      <Route path="cervezas">
+        <Route path=":id" component={Cerveza} />
+        <IndexRoute component={Cervezas} />
+      </Route>
       <Route path="info" component={Info} />
       <Route path="noticias" component={Noticias} />
       <Route path="eventos" component={Noticias} />

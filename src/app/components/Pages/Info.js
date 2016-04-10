@@ -1,6 +1,5 @@
 import React from "react";
 import Layout from "../Base/Layout";
-import Header from "../Base/Header";
 import About from "../Base/About";
 import Text from "../Base/Text";
 import Link from "../Base/Link";

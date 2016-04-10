@@ -46,7 +46,7 @@ export default {
           , data = {};
 
         queries.forEach((query, name) => {
-          data[name] = store.fetchQuery(query, params);
+          data[name] = store.fetchQuery(query, this.props.params);
         });
 
         return data;

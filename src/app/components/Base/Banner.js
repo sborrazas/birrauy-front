@@ -1,12 +1,24 @@
 import React from "react";
+import domClasses from "../../../utils/dom/classes";
 
 class Banner extends React.Component {
   render () {
+    var classes = null;
+
+    classes = domClasses.set({
+      "banner": true,
+      "banner--secondary": this.props.secondary
+    });
+
     return (
-      <header className="banner">{this.props.children}</header>
+      <header className={classes}>{this.props.children}</header>
     );
   }
 }
+
+Banner.propTypes = {
+  secondary: React.PropTypes.bool
+};
 
 class Title extends React.Component {
   render () {

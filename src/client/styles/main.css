@@ -46,7 +46,16 @@ body {
 }
 
 .layout-content--withBanner {
-  bottom: 171px;
+  bottom: 147px;
+}
+
+.layout-content--withSecondaryBanner {
+  bottom: 240px;
+}
+
+.layout-content--detail {
+  background: #FFF;
+  overflow-y: auto;
 }
 
 .layout-footer {
@@ -60,23 +69,32 @@ body {
 }
 
 .layout-banner {
-  bottom: -90px;
+  border-top: 2px solid rgb(0, 0, 0);
+  bottom: -159px;
   left: 0;
   position: absolute;
   right: 0;
   z-index: 110;
 }
 
-/* header *********************************************************************/
-.header {
+.layout-banner--secondary {
+  bottom: -66px;
+}
+
+.layout-banner--thirdary {
+  bottom: -92px;
+}
+
+/* mainHeader *****************************************************************/
+.mainHeader {
   text-align: center;
 }
 
-.header-title {
+.mainHeader-title {
   display: none;
 }
 
-.header-logo {
+.mainHeader-logo {
   max-height: 60px;
   margin-top: 11px;
 }
@@ -86,6 +104,11 @@ body {
   background: #FFF;
   height: 90px;
   padding: 20px 20px 0 20px;
+}
+
+.banner--secondary {
+  height: 65px;
+  padding-top: 13px;
 }
 
 .banner-title {
@@ -210,11 +233,11 @@ body {
 
 .filters-item {
   border: 2px solid rgb(0, 0, 0);
-  border-radius: 29px;
+  border-radius: 22px;
   cursor: pointer;
   display: inline-block;
-  margin: 0 14px;
-  padding: 15px 22px;
+  margin: 0 9px;
+  padding: 8px 18px;
   position: relative;
   text-decoration: none;
   top: -2px;
@@ -229,19 +252,27 @@ body {
 
 /* list ***********************************************************************/
 .list {
+  border-top: 1px solid rgb(185, 185, 185);
   max-height: 100%;
   overflow: auto;
+  width: 100%;
 }
 
 .list-item {
   background: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(185, 185, 185);
+  display: block;
   padding: 5px 10px;
 }
 
 .list-item--title {
-  background: none;
+  background: rgb(230, 230, 230);
   text-transform: uppercase;
+}
+
+.list-item--link {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .list-itemTitle {
@@ -250,5 +281,34 @@ body {
 }
 
 .list-itemDescription {
+  font-size: 12px;
+}
+
+/* header *********************************************************************/
+.header {
+  margin: 20px;
+}
+
+.header-title {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+/* details ********************************************************************/
+.details {
+  margin: 20px;
+  overflow: auto;
+}
+
+.details-item {
+  float: left;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 33.33%;
+}
+
+.details-title {
+  color: #FFC107;
+  display: block;
   font-size: 12px;
 }

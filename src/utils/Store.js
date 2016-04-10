@@ -13,7 +13,6 @@ class Store extends EventEmitter {
   constructor () {
     super();
     this._state = new Map();
-    this._request = new Map();
   }
   onChange (callback) {
     this.on("change", callback);
@@ -21,12 +20,8 @@ class Store extends EventEmitter {
   removeOnChangeListener (callback) {
     this.removeListener("change", callback);
   }
-  setRequest (request) {
-    this._request = request;
-    this.emit("change");
-  }
   fetchQuery (query, params) {
-    return this._fetchResource(query.info(params, this._request));
+    return this._fetchResource(query.info(params));
   }
   fetchMutator (mutator, params, forceLoad) {
     var self = this

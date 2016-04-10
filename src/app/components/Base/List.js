@@ -1,10 +1,11 @@
 import React from "react";
 import domClasses from "../../../utils/dom/classes";
+import { Link } from "react-router";
 
 class List extends React.Component {
   render () {
     return (
-      <ul className="list">{this.props.children}</ul>
+      <div className="list">{this.props.children}</div>
     );
   }
 }
@@ -18,12 +19,22 @@ class Item extends React.Component {
 
     classes = domClasses.set({
       "list-item": true,
-      "list-item--title": this.props.title
+      "list-item--title": this.props.title,
+      "list-item--link": this.props.to
     });
 
-    return (
-      <li className={classes}>{this.props.children}</li>
-    );
+    if (this.props.to) {
+      return (
+        <Link className={classes} to={this.props.to}>
+          {this.props.children}
+        </Link>
+      );
+    }
+    else {
+      return (
+        <div className={classes}>{this.props.children}</div>
+      );
+    }
   }
 }
 

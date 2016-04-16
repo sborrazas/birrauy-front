@@ -25599,7 +25599,7 @@
 	      });
 
 	      return _react2["default"].createElement(
-	        "header",
+	        "div",
 	        { className: classes },
 	        this.props.children
 	      );

@@ -11,7 +11,7 @@ class Banner extends React.Component {
     });
 
     return (
-      <header className={classes}>{this.props.children}</header>
+      <div className={classes}>{this.props.children}</div>
     );
   }
 }

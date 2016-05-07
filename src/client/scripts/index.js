@@ -24804,11 +24804,6 @@
 	              _BaseNav2["default"].Item,
 	              { to: "/eventos", icon: "eventos" },
 	              "Eventos"
-	            ),
-	            _react2["default"].createElement(
-	              _BaseNav2["default"].Item,
-	              { to: "/noticias", icon: "noticias" },
-	              "Noticias"
 	            )
 	          )
 	        )
@@ -35261,32 +35256,20 @@
 
 	var _BaseLayout2 = _interopRequireDefault(_BaseLayout);
 
-	var _BaseBanner = __webpack_require__(220);
-
-	var _BaseBanner2 = _interopRequireDefault(_BaseBanner);
-
-	var _reactGoogleMaps = __webpack_require__(222);
-
 	var _utilsRelayJs = __webpack_require__(264);
 
 	var _utilsRelayJs2 = _interopRequireDefault(_utilsRelayJs);
 
-	var _configAppJs = __webpack_require__(266);
+	var Noticias = (function (_React$Component) {
+	  _inherits(Noticias, _React$Component);
 
-	var Mapa = (function (_React$Component) {
-	  _inherits(Mapa, _React$Component);
+	  function Noticias() {
+	    _classCallCheck(this, Noticias);
 
-	  function Mapa() {
-	    _classCallCheck(this, Mapa);
-
-	    _get(Object.getPrototypeOf(Mapa.prototype), "constructor", this).call(this);
-
-	    this.state = {
-	      activeBreweryId: null
-	    };
+	    _get(Object.getPrototypeOf(Noticias.prototype), "constructor", this).apply(this, arguments);
 	  }
 
-	  _createClass(Mapa, [{
+	  _createClass(Noticias, [{
 	    key: "render",
 	    value: function render() {
 	      var _this = this;
@@ -35325,23 +35308,23 @@
 	        });
 
 	        if (activeBrewery.get("photo_suffix")) {
-	          breweryPhoto = _react2["default"].createElement(_BaseBanner2["default"].Img, { src: activeBrewery.get("photo_prefix") + "height50" + activeBrewery.get("photo_suffix") });
+	          breweryPhoto = _react2["default"].createElement(Banner.Img, { src: activeBrewery.get("photo_prefix") + "height50" + activeBrewery.get("photo_suffix") });
 	        }
 
 	        activeBrewery = _react2["default"].createElement(
 	          _BaseLayout2["default"].Banner,
 	          null,
 	          _react2["default"].createElement(
-	            _BaseBanner2["default"],
+	            Banner,
 	            null,
 	            breweryPhoto,
 	            _react2["default"].createElement(
-	              _BaseBanner2["default"].Title,
+	              Banner.Title,
 	              null,
 	              activeBrewery.get("name")
 	            ),
 	            _react2["default"].createElement(
-	              _BaseBanner2["default"].Description,
+	              Banner.Description,
 	              null,
 	              activeBrewery.get("address")
 	            )
@@ -35350,10 +35333,10 @@
 	      }
 
 	      markers = breweries.get("data").filter(function (brewery) {
-	        return brewery.get("lat") && brewery.get("lng") && _configAppJs.BREWERY_TYPES.indexOf(brewery.get("brewery_type")) !== -1;
+	        return brewery.get("lat") && brewery.get("lng") && BREWERY_TYPES.indexOf(brewery.get("brewery_type")) !== -1;
 	      }).map(function (brewery) {
 	        var isActive = brewery.get("id") === activeBreweryId,
-	            imgKey = _configAppJs.BREWERY_IMG_MAP[brewery.get("brewery_type")],
+	            imgKey = BREWERY_IMG_MAP[brewery.get("brewery_type")],
 	            position = null,
 	            icon = null;
 
@@ -35366,14 +35349,14 @@
 	          lng: parseFloat(brewery.get("lng"))
 	        };
 	        icon = {
-	          url: _configAppJs.IMAGES_URL + imgKey + ".png",
+	          url: IMAGES_URL + imgKey + ".png",
 	          scaledSize: {
 	            width: 34,
 	            height: 45
 	          }
 	        };
 
-	        return _react2["default"].createElement(_reactGoogleMaps.Marker, { key: brewery.get("id"),
+	        return _react2["default"].createElement(Marker, { key: brewery.get("id"),
 	          position: position,
 	          defaultAnimation: 2,
 	          icon: icon,
@@ -35384,9 +35367,9 @@
 	        _BaseLayout2["default"].Content,
 	        { withBanner: !!activeBrewery },
 	        _react2["default"].createElement(
-	          _reactGoogleMaps.GoogleMap,
+	          GoogleMap,
 	          { containerProps: containerProps,
-	            defaultCenter: _configAppJs.DEFAULT_LOCATION,
+	            defaultCenter: DEFAULT_LOCATION,
 	            defaultZoom: 14 },
 	          markers
 	        ),
@@ -35404,19 +35387,20 @@
 	    }
 	  }]);
 
-	  return Mapa;
+	  return Noticias;
 	})(_react2["default"].Component);
 
-	Mapa.propTypes = {
+	Noticias.propTypes = {
 	  news: _react2["default"].PropTypes.object.isRequired
 	};
 
-	exports["default"] = _utilsRelayJs2["default"].createContainer(Mapa, {
+	exports["default"] = _utilsRelayJs2["default"].createContainer(Noticias, {
 	  queries: {
 	    news: {
 	      info: function info(params, request) {
 	        return {
-	          id: "/posts"
+	          id: "/news",
+	          local: true
 	        };
 	      }
 	    }
@@ -36252,11 +36236,7 @@
 	  function Eventos() {
 	    _classCallCheck(this, Eventos);
 
-	    _get(Object.getPrototypeOf(Eventos.prototype), "constructor", this).call(this);
-
-	    this.state = {
-	      activeBreweryId: null
-	    };
+	    _get(Object.getPrototypeOf(Eventos.prototype), "constructor", this).apply(this, arguments);
 	  }
 
 	  _createClass(Eventos, [{

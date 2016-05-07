@@ -32,13 +32,6 @@ const processEvents = (events) => {
 };
 
 class Eventos extends React.Component {
-  constructor () {
-    super();
-
-    this.state = {
-      activeBreweryId: null
-    };
-  }
   render () {
     const events = this.props.events;
     let listItems = [];

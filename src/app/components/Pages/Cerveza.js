@@ -52,7 +52,7 @@ class Cerveza extends React.Component {
         </Details>
         <List>
           <List.Item title={true}>Dónde conseguirla</List.Item>
-        <List.Item>{beer.getIn(["brewery", "name"])}</List.Item>
+          <List.Item>{beer.getIn(["brewery", "name"])}</List.Item>
         </List>
       </Layout.Content>
     );

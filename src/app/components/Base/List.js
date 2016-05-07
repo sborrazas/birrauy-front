@@ -24,11 +24,20 @@ class Item extends React.Component {
     });
 
     if (this.props.to) {
-      return (
-        <Link className={classes} to={this.props.to}>
-          {this.props.children}
-        </Link>
-      );
+      if (this.props.to.startsWith("http")) {
+        return (
+          <a className={classes} href={this.props.to} target="_blank">
+            {this.props.children}
+          </a>
+        );
+      }
+      else {
+        return (
+          <Link className={classes} to={this.props.to}>
+            {this.props.children}
+          </Link>
+        );
+      }
     }
     else {
       return (
@@ -44,8 +53,15 @@ Item.propTypes = {
 
 class ItemTitle extends React.Component {
   render () {
+    var classes = null;
+
+    classes = domClasses.set({
+      "list-itemTitle": true,
+      "list-itemTitle--event": this.props.event
+    });
+
     return (
-      <div className="list-itemTitle">{this.props.children}</div>
+      <div className={classes}>{this.props.children}</div>
     );
   }
 }
@@ -58,8 +74,25 @@ class ItemDescription extends React.Component {
   }
 }
 
+class ItemDate extends React.Component {
+  render() {
+    return (
+      <div className="list-itemDate">
+        <span className="list-itemDateDay">{this.props.date}</span>
+        {this.props.month}
+      </div>
+    );
+  }
+}
+
+ItemDate.propTypes = {
+  date: React.PropTypes.string.isRequired,
+  month: React.PropTypes.string.isRequired
+};
+
 List.Item = Item;
 List.ItemTitle = ItemTitle;
 List.ItemDescription = ItemDescription;
+List.ItemDate = ItemDate;
 
 export default List;

@@ -288,6 +288,7 @@ body {
   background: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(185, 185, 185);
   display: block;
+  overflow: auto;
   padding: 5px 10px;
 }
 
@@ -306,8 +307,32 @@ body {
   color: rgb(0, 0, 0);
 }
 
+.list-itemTitle--event {
+  margin-top: 15px;
+}
+
 .list-itemDescription {
   font-size: 12px;
+}
+
+.list-itemDate {
+  background: rgb(255, 193, 7);
+  border-radius: 5px;
+  display: inline-block;
+  float: left;
+  font-weight: bold;
+  height: 80px;
+  margin: 10px 15px 10px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 80px;
+}
+
+.list-itemDateDay {
+  display: block;
+  font-size: 30px;
+  line-height: 1em;
+  margin-top: 14px;
 }
 
 /* header *********************************************************************/
@@ -337,4 +362,18 @@ body {
   color: #FFC107;
   display: block;
   font-size: 12px;
+}
+
+/* emptyState *****************************************************************/
+.emptyState {
+  padding: 170px 0;
+  text-align: center;
+}
+
+.emptyState-title {
+  font-size: 35px;
+}
+
+.emptyState-subtitle {
+  font-size: 25px;
 }

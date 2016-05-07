@@ -6,6 +6,7 @@ import Cerveza from "../Pages/Cerveza";
 import Info from "../Pages/Info";
 import Mapa from "../Pages/Mapa";
 import Noticias from "../Pages/Noticias";
+import Eventos from "../Pages/Eventos";
 import createBrowserHistory from "history/lib/createBrowserHistory";
 
 const history = createBrowserHistory();
@@ -29,7 +30,7 @@ export default (
       </Route>
       <Route path="info" component={Info} />
       <Route path="noticias" component={Noticias} />
-      <Route path="eventos" component={Noticias} />
+      <Route path="eventos" component={Eventos} />
 
       <IndexRoute component={Mapa} />
 

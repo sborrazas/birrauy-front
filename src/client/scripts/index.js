@@ -52,7 +52,7 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _utilsStoreJs = __webpack_require__(277);
+	var _utilsStoreJs = __webpack_require__(279);
 
 	var _utilsStoreJs2 = _interopRequireDefault(_utilsStoreJs);
 
@@ -19834,7 +19834,7 @@
 
 	var _Root2 = _interopRequireDefault(_Root);
 
-	var _PagesCervezas = __webpack_require__(274);
+	var _PagesCervezas = __webpack_require__(276);
 
 	var _PagesCervezas2 = _interopRequireDefault(_PagesCervezas);
 
@@ -19842,7 +19842,7 @@
 
 	var _PagesCerveza2 = _interopRequireDefault(_PagesCerveza);
 
-	var _PagesInfo = __webpack_require__(270);
+	var _PagesInfo = __webpack_require__(272);
 
 	var _PagesInfo2 = _interopRequireDefault(_PagesInfo);
 
@@ -19850,15 +19850,15 @@
 
 	var _PagesMapa2 = _interopRequireDefault(_PagesMapa);
 
-	var _PagesNoticias = __webpack_require__(269);
+	var _PagesNoticias = __webpack_require__(271);
 
 	var _PagesNoticias2 = _interopRequireDefault(_PagesNoticias);
 
-	var _PagesEventos = __webpack_require__(275);
+	var _PagesEventos = __webpack_require__(277);
 
 	var _PagesEventos2 = _interopRequireDefault(_PagesEventos);
 
-	var _historyLibCreateBrowserHistory = __webpack_require__(276);
+	var _historyLibCreateBrowserHistory = __webpack_require__(278);
 
 	var _historyLibCreateBrowserHistory2 = _interopRequireDefault(_historyLibCreateBrowserHistory);
 
@@ -24725,11 +24725,11 @@
 
 	var _PagesCerveza2 = _interopRequireDefault(_PagesCerveza);
 
-	var _PagesNoticias = __webpack_require__(269);
+	var _PagesNoticias = __webpack_require__(271);
 
 	var _PagesNoticias2 = _interopRequireDefault(_PagesNoticias);
 
-	var _PagesInfo = __webpack_require__(270);
+	var _PagesInfo = __webpack_require__(272);
 
 	var _PagesInfo2 = _interopRequireDefault(_PagesInfo);
 
@@ -34698,11 +34698,11 @@
 
 	var _BaseLayout2 = _interopRequireDefault(_BaseLayout);
 
-	var _BaseHeader = __webpack_require__(282);
+	var _BaseHeader = __webpack_require__(268);
 
 	var _BaseHeader2 = _interopRequireDefault(_BaseHeader);
 
-	var _BaseDetails = __webpack_require__(283);
+	var _BaseDetails = __webpack_require__(269);
 
 	var _BaseDetails2 = _interopRequireDefault(_BaseDetails);
 
@@ -34710,7 +34710,7 @@
 
 	var _utilsRelayJs2 = _interopRequireDefault(_utilsRelayJs);
 
-	var _BaseList = __webpack_require__(268);
+	var _BaseList = __webpack_require__(270);
 
 	var _BaseList2 = _interopRequireDefault(_BaseList);
 
@@ -34879,6 +34879,184 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(162);
+
+	var Header = (function (_React$Component) {
+	  _inherits(Header, _React$Component);
+
+	  function Header() {
+	    _classCallCheck(this, Header);
+
+	    _get(Object.getPrototypeOf(Header.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Header, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "header",
+	        { className: "header" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Header;
+	})(_react2["default"].Component);
+
+	var Title = (function (_React$Component2) {
+	  _inherits(Title, _React$Component2);
+
+	  function Title() {
+	    _classCallCheck(this, Title);
+
+	    _get(Object.getPrototypeOf(Title.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Title, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "h1",
+	        { className: "header-title" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Title;
+	})(_react2["default"].Component);
+
+	Header.Title = Title;
+
+	exports["default"] = Header;
+	module.exports = exports["default"];
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(162);
+
+	var Details = (function (_React$Component) {
+	  _inherits(Details, _React$Component);
+
+	  function Details() {
+	    _classCallCheck(this, Details);
+
+	    _get(Object.getPrototypeOf(Details.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Details, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "details" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Details;
+	})(_react2["default"].Component);
+
+	var Item = (function (_React$Component2) {
+	  _inherits(Item, _React$Component2);
+
+	  function Item() {
+	    _classCallCheck(this, Item);
+
+	    _get(Object.getPrototypeOf(Item.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Item, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "details-item" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Item;
+	})(_react2["default"].Component);
+
+	var Title = (function (_React$Component3) {
+	  _inherits(Title, _React$Component3);
+
+	  function Title() {
+	    _classCallCheck(this, Title);
+
+	    _get(Object.getPrototypeOf(Title.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(Title, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "span",
+	        { className: "details-title" },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Title;
+	})(_react2["default"].Component);
+
+	Details.Item = Item;
+	Details.Title = Title;
+
+	exports["default"] = Details;
+	module.exports = exports["default"];
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _utilsDomClasses = __webpack_require__(215);
 
 	var _utilsDomClasses2 = _interopRequireDefault(_utilsDomClasses);
@@ -34931,11 +35109,19 @@
 	      });
 
 	      if (this.props.to) {
-	        return _react2["default"].createElement(
-	          _reactRouter.Link,
-	          { className: classes, to: this.props.to },
-	          this.props.children
-	        );
+	        if (this.props.to.startsWith("http")) {
+	          return _react2["default"].createElement(
+	            "a",
+	            { className: classes, href: this.props.to, target: "_blank" },
+	            this.props.children
+	          );
+	        } else {
+	          return _react2["default"].createElement(
+	            _reactRouter.Link,
+	            { className: classes, to: this.props.to },
+	            this.props.children
+	          );
+	        }
 	      } else {
 	        return _react2["default"].createElement(
 	          "div",
@@ -34965,9 +35151,16 @@
 	  _createClass(ItemTitle, [{
 	    key: "render",
 	    value: function render() {
+	      var classes = null;
+
+	      classes = _utilsDomClasses2["default"].set({
+	        "list-itemTitle": true,
+	        "list-itemTitle--event": this.props.event
+	      });
+
 	      return _react2["default"].createElement(
 	        "div",
-	        { className: "list-itemTitle" },
+	        { className: classes },
 	        this.props.children
 	      );
 	    }
@@ -34999,15 +35192,49 @@
 	  return ItemDescription;
 	})(_react2["default"].Component);
 
+	var ItemDate = (function (_React$Component5) {
+	  _inherits(ItemDate, _React$Component5);
+
+	  function ItemDate() {
+	    _classCallCheck(this, ItemDate);
+
+	    _get(Object.getPrototypeOf(ItemDate.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(ItemDate, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "list-itemDate" },
+	        _react2["default"].createElement(
+	          "span",
+	          { className: "list-itemDateDay" },
+	          this.props.date
+	        ),
+	        this.props.month
+	      );
+	    }
+	  }]);
+
+	  return ItemDate;
+	})(_react2["default"].Component);
+
+	ItemDate.propTypes = {
+	  date: _react2["default"].PropTypes.string.isRequired,
+	  month: _react2["default"].PropTypes.string.isRequired
+	};
+
 	List.Item = Item;
 	List.ItemTitle = ItemTitle;
 	List.ItemDescription = ItemDescription;
+	List.ItemDate = ItemDate;
 
 	exports["default"] = List;
 	module.exports = exports["default"];
 
 /***/ },
-/* 269 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35198,7 +35425,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35225,15 +35452,15 @@
 
 	var _BaseLayout2 = _interopRequireDefault(_BaseLayout);
 
-	var _BaseAbout = __webpack_require__(271);
+	var _BaseAbout = __webpack_require__(273);
 
 	var _BaseAbout2 = _interopRequireDefault(_BaseAbout);
 
-	var _BaseText = __webpack_require__(272);
+	var _BaseText = __webpack_require__(274);
 
 	var _BaseText2 = _interopRequireDefault(_BaseText);
 
-	var _BaseLink = __webpack_require__(273);
+	var _BaseLink = __webpack_require__(275);
 
 	var _BaseLink2 = _interopRequireDefault(_BaseLink);
 
@@ -35526,7 +35753,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35683,7 +35910,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 272 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35737,7 +35964,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 273 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35791,7 +36018,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35826,7 +36053,7 @@
 
 	var _utilsRelayJs2 = _interopRequireDefault(_utilsRelayJs);
 
-	var _BaseList = __webpack_require__(268);
+	var _BaseList = __webpack_require__(270);
 
 	var _BaseList2 = _interopRequireDefault(_BaseList);
 
@@ -35927,7 +36154,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 275 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35950,21 +36177,56 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _immutable = __webpack_require__(265);
+
+	var _immutable2 = _interopRequireDefault(_immutable);
+
 	var _BaseLayout = __webpack_require__(214);
 
 	var _BaseLayout2 = _interopRequireDefault(_BaseLayout);
 
-	var _BaseBanner = __webpack_require__(220);
+	var _BaseList = __webpack_require__(270);
 
-	var _BaseBanner2 = _interopRequireDefault(_BaseBanner);
+	var _BaseList2 = _interopRequireDefault(_BaseList);
 
-	var _reactGoogleMaps = __webpack_require__(222);
+	var _BaseEmptyState = __webpack_require__(285);
+
+	var _BaseEmptyState2 = _interopRequireDefault(_BaseEmptyState);
 
 	var _utilsRelayJs = __webpack_require__(264);
 
 	var _utilsRelayJs2 = _interopRequireDefault(_utilsRelayJs);
 
-	var _configAppJs = __webpack_require__(266);
+	var _utilsDateJs = __webpack_require__(284);
+
+	var _utilsDateJs2 = _interopRequireDefault(_utilsDateJs);
+
+	var THIS_WEEK_DAYS = 7;
+	var NEXT_WEEK_DAYS = 14;
+	var EVENT_URL = "https://www.facebook.com/events/";
+
+	var processEvents = function processEvents(events) {
+	  return events.map(function (event) {
+	    var startTime = event.get("start_time");
+
+	    return _react2["default"].createElement(
+	      _BaseList2["default"].Item,
+	      { key: event.get("id"), to: EVENT_URL + event.get("id") },
+	      startTime && _react2["default"].createElement(_BaseList2["default"].ItemDate, { date: _utilsDateJs2["default"].date(event.get("start_time")),
+	        month: _utilsDateJs2["default"].month(event.get("start_time")) }),
+	      _react2["default"].createElement(
+	        _BaseList2["default"].ItemTitle,
+	        { event: true },
+	        event.get("name")
+	      ),
+	      startTime && _react2["default"].createElement(
+	        _BaseList2["default"].ItemDescription,
+	        null,
+	        _utilsDateJs2["default"].pretty(startTime)
+	      )
+	    );
+	  }).toJS();
+	};
 
 	var Eventos = (function (_React$Component) {
 	  _inherits(Eventos, _React$Component);
@@ -35982,29 +36244,11 @@
 	  _createClass(Eventos, [{
 	    key: "render",
 	    value: function render() {
-	      var _this = this;
+	      var events = this.props.events;
+	      var listItems = [];
+	      var result = undefined;
 
-	      console.log(this.props.news);
-	      return _react2["default"].createElement(
-	        "div",
-	        null,
-	        "a"
-	      );
-
-	      var breweries = this.props.breweries,
-	          activeBreweryId = this.state.activeBreweryId,
-	          activeBrewery = null,
-	          breweryPhoto = null,
-	          containerProps = null,
-	          markers = null;
-
-	      containerProps = {
-	        style: {
-	          height: "100%"
-	        }
-	      };
-
-	      if (breweries.get("status") === "loading") {
+	      if (events.get("status") === "loading") {
 	        return _react2["default"].createElement(
 	          "div",
 	          null,
@@ -36012,88 +36256,80 @@
 	        );
 	      }
 
-	      if (activeBreweryId) {
-	        activeBrewery = breweries.get("data").find(function (brewery) {
-	          return brewery.get("id") === activeBreweryId;
-	        });
+	      var thisWeek = events.get("data").filter(function (event) {
+	        var startTime = event.get("start_time");
+	        var daysLeft = startTime && _utilsDateJs2["default"].daysLeft(startTime);
 
-	        if (activeBrewery.get("photo_suffix")) {
-	          breweryPhoto = _react2["default"].createElement(_BaseBanner2["default"].Img, { src: activeBrewery.get("photo_prefix") + "height50" + activeBrewery.get("photo_suffix") });
-	        }
+	        return daysLeft && 0 <= daysLeft && daysLeft <= THIS_WEEK_DAYS;
+	      });
+	      var nextWeek = events.get("data").filter(function (event) {
+	        var startTime = event.get("start_time");
+	        var daysLeft = startTime && _utilsDateJs2["default"].daysLeft(startTime);
 
-	        activeBrewery = _react2["default"].createElement(
-	          _BaseLayout2["default"].Banner,
-	          null,
-	          _react2["default"].createElement(
-	            _BaseBanner2["default"],
-	            null,
-	            breweryPhoto,
-	            _react2["default"].createElement(
-	              _BaseBanner2["default"].Title,
-	              null,
-	              activeBrewery.get("name")
-	            ),
-	            _react2["default"].createElement(
-	              _BaseBanner2["default"].Description,
-	              null,
-	              activeBrewery.get("address")
-	            )
-	          )
-	        );
+	        return daysLeft && THIS_WEEK_DAYS < daysLeft && daysLeft <= NEXT_WEEK_DAYS;
+	      });
+	      var rest = events.get("data").filter(function (event) {
+	        var startTime = event.get("start_time");
+	        var daysLeft = startTime && _utilsDateJs2["default"].daysLeft(startTime);
+
+	        return daysLeft && daysLeft > NEXT_WEEK_DAYS;
+	      });
+	      var past = events.get("data").filter(function (event) {
+	        var startTime = event.get("start_time");
+	        var daysLeft = startTime && _utilsDateJs2["default"].daysLeft(startTime);
+
+	        return daysLeft && daysLeft < 0;
+	      });
+
+	      if (thisWeek.size > 0) {
+	        listItems.push(_react2["default"].createElement(
+	          _BaseList2["default"].Item,
+	          { key: "this-week", title: true },
+	          "Esta semana"
+	        ));
+	        listItems = listItems.concat(processEvents(thisWeek));
+	      }
+	      if (nextWeek.size > 0) {
+	        listItems.push(_react2["default"].createElement(
+	          _BaseList2["default"].Item,
+	          { key: "next-week", title: true },
+	          "Próxima semana"
+	        ));
+	        listItems = listItems.concat(processEvents(nextWeek));
+	      }
+	      if (rest.size > 0) {
+	        listItems.push(_react2["default"].createElement(
+	          _BaseList2["default"].Item,
+	          { key: "rest", title: true },
+	          "Próximamente"
+	        ));
+	        listItems = listItems.concat(processEvents(rest));
+	      }
+	      if (past.size > 0) {
+	        listItems.push(_react2["default"].createElement(
+	          _BaseList2["default"].Item,
+	          { key: "past", title: true },
+	          "Anteriores"
+	        ));
+	        listItems = listItems.concat(processEvents(past));
 	      }
 
-	      markers = breweries.get("data").filter(function (brewery) {
-	        return brewery.get("lat") && brewery.get("lng") && _configAppJs.BREWERY_TYPES.indexOf(brewery.get("brewery_type")) !== -1;
-	      }).map(function (brewery) {
-	        var isActive = brewery.get("id") === activeBreweryId,
-	            imgKey = _configAppJs.BREWERY_IMG_MAP[brewery.get("brewery_type")],
-	            position = null,
-	            icon = null;
-
-	        if (isActive) {
-	          imgKey += "-active";
-	        }
-
-	        position = {
-	          lat: parseFloat(brewery.get("lat")),
-	          lng: parseFloat(brewery.get("lng"))
-	        };
-	        icon = {
-	          url: _configAppJs.IMAGES_URL + imgKey + ".png",
-	          scaledSize: {
-	            width: 34,
-	            height: 45
-	          }
-	        };
-
-	        return _react2["default"].createElement(_reactGoogleMaps.Marker, { key: brewery.get("id"),
-	          position: position,
-	          defaultAnimation: 2,
-	          icon: icon,
-	          onClick: _this._selectMarkerHandler(brewery.get("id")) });
-	      }).toJS();
+	      if (thisWeek.size > 0 || nextWeek.size > 0 || rest.size > 0 || past.size > 0) {
+	        result = _react2["default"].createElement(
+	          _BaseList2["default"],
+	          null,
+	          listItems
+	        );
+	      } else {
+	        result = _react2["default"].createElement(_BaseEmptyState2["default"], { title: "¿Nadie me invitó?",
+	          subtitle: "¿O no hay eventos?..." });
+	      }
 
 	      return _react2["default"].createElement(
 	        _BaseLayout2["default"].Content,
-	        { withBanner: !!activeBrewery },
-	        _react2["default"].createElement(
-	          _reactGoogleMaps.GoogleMap,
-	          { containerProps: containerProps,
-	            defaultCenter: _configAppJs.DEFAULT_LOCATION,
-	            defaultZoom: 14 },
-	          markers
-	        ),
-	        activeBrewery
+	        null,
+	        result
 	      );
-	    }
-	  }, {
-	    key: "_selectMarkerHandler",
-	    value: function _selectMarkerHandler(breweryId) {
-	      var _this2 = this;
-
-	      return function () {
-	        _this2.setState({ activeBreweryId: breweryId });
-	      };
 	    }
 	  }]);
 
@@ -36101,12 +36337,12 @@
 	})(_react2["default"].Component);
 
 	Eventos.propTypes = {
-	  news: _react2["default"].PropTypes.object.isRequired
+	  events: _react2["default"].PropTypes.object.isRequired
 	};
 
 	exports["default"] = _utilsRelayJs2["default"].createContainer(Eventos, {
 	  queries: {
-	    news: {
+	    events: {
 	      info: function info(params, request) {
 	        return {
 	          id: "/events",
@@ -36119,7 +36355,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 276 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -36297,7 +36533,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 277 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -36312,13 +36548,13 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _events = __webpack_require__(278);
+	var _events = __webpack_require__(280);
 
 	var _events2 = _interopRequireDefault(_events);
 
 	var _immutable = __webpack_require__(265);
 
-	var _superagent = __webpack_require__(279);
+	var _superagent = __webpack_require__(281);
 
 	var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -36355,286 +36591,12 @@
 	      return this._fetchResource(query.info(params));
 	    }
 	  }, {
-	    key: "fetchMutator",
-	    value: function fetchMutator(mutator, params, forceLoad) {
-	      var self = this,
-	          related = {},
-	          id = null,
-	          state = null,
-	          resourceInfo = null,
-	          stale = [],
-	          resource = null;
-
-	      if (mutator.related) {
-	        collection.each(mutator.related(), function (_, id) {
-	          related[id] = self._state[id];
-	        });
-	      }
-
-	      resourceInfo = mutator.info(params, related);
-	      id = resourceInfo.id;
-
-	      forceLoad = forceLoad && resourceInfo.expires;
-
-	      if (mutator.stale) {
-	        stale = mutator.stale(params, related);
-	      }
-
-	      if (!self._mutators[id]) {
-	        if (resourceInfo.create) {
-	          self._createMutator({
-	            id: id,
-	            status: "success",
-	            resource: resourceInfo.initial || {},
-	            create: true,
-	            append: resourceInfo.append,
-	            stale: stale
-	          });
-	        } else {
-	          resource = self._fetchResource({
-	            id: id,
-	            forceLoad: forceLoad
-	          });
-
-	          if (resource.status === "success") {
-	            if (collection.isArray(resource.data)) {
-	              resource = collection.clone(resource.data);
-	            } else {
-	              resource = object.clone(resource.data);
-	            }
-
-	            self._createMutator({
-	              id: id,
-	              status: "success",
-	              resource: resource,
-	              initial: resourceInfo.initial,
-	              append: resourceInfo.append,
-	              stale: stale
-	            });
-	          } else {
-	            return resource;
-	          }
-	        }
-	      }
-
-	      return self._mutators[id];
-	    }
-	  }, {
-	    key: "clearMutator",
-	    value: function clearMutator(mutator) {
-	      delete this._mutators[mutator.id];
-	    }
-	  }, {
-	    key: "_createMutator",
-	    value: function _createMutator(params) {
-	      var self = this,
-	          item = null,
-	          mutator = null,
-	          data = null;
-
-	      data = params.resource;
-
-	      if (params.status === "success" && params.resource.collection) {
-	        data = this._denormalizeCollection(data);
-	      }
-
-	      mutator = self._mutators[params.id] = {
-	        id: params.id,
-	        status: params.status,
-	        item: item,
-	        data: object.deepClone(data),
-	        errors: params.errors || {},
-	        create: params.create,
-	        update: function update(key) {
-	          return function (value) {
-	            self._updateMutator({
-	              id: params.id,
-	              key: key,
-	              value: value
-	            });
-	          };
-	        },
-	        replace: function replace(value) {
-	          self._replaceMutator({
-	            id: params.id,
-	            status: "success",
-	            data: value || {}
-	          });
-	        },
-	        "delete": function _delete(key) {
-	          self._deleteMutator(id, key);
-	        },
-	        save: function save(action, options, successCallback, failedCallback) {
-	          return self._saveMutator({
-	            id: params.id,
-	            action: action,
-	            options: options,
-	            successCallback: successCallback,
-	            failedCallback: failedCallback,
-	            create: params.create,
-	            append: params.append,
-	            stale: params.stale
-	          });
-	        },
-	        revert: function revert(key) {
-	          self._updateMutator({
-	            id: params.id,
-	            key: key,
-	            value: self._state[params.id].data[key]
-	          });
-	        },
-	        reload: function reload(_successCallback, failedCallback) {
-	          self._fetchResource({
-	            id: params.id,
-	            forceLoad: true,
-	            successCallback: function successCallback(resource) {
-	              delete self._mutators[params.id];
-	              if (_successCallback) {
-	                _successCallback(resource);
-	              }
-	            },
-	            failedCallback: failedCallback
-	          });
-	        }
-	      };
-	    }
-	  }, {
-	    key: "_updateMutator",
-	    value: function _updateMutator(params) {
-	      var mutator = this._mutators[params.id];
-
-	      if (mutator.status === "loading") {
-	        return;
-	      }
-
-	      mutator.status = "success";
-	      mutator.data[params.key] = params.value;
-	      if (mutator.errors.hasOwnProperty(params.key)) {
-	        delete mutator.errors[params.key];
-	      }
-
-	      this.emit("change");
-	    }
-	  }, {
-	    key: "_replaceMutator",
-	    value: function _replaceMutator(params) {
-	      var mutator = this._mutators[params.id];
-
-	      if (mutator.status === "loading") {
-	        return;
-	      }
-
-	      mutator.status = params.status;
-	      mutator.data = params.data;
-	      mutator.errors = {};
-
-	      this.emit("change");
-	    }
-	  }, {
-	    key: "_deleteMutator",
-	    value: function _deleteMutator(id, key) {
-	      var mutator = this._mutators[id];
-
-	      if (mutator.status === "loading") {
-	        return;
-	      }
-
-	      mutator.status = "success";
-	      mutator.data.splice(key, 1);
-	      mutator.errors = {};
-
-	      this.emit("change");
-	    }
-	  }, {
-	    key: "_saveMutator",
-	    value: function _saveMutator(params) {
-	      var self = this,
-	          mutator = this._mutators[params.id],
-	          create = mutator.create,
-	          path = params.id,
-	          method = "post";
-
-	      if (mutator.status === "loading") {
-	        return;
-	      }
-
-	      mutator.status = "loading";
-	      self.emit("change");
-
-	      if (params.action) {
-	        path = [path, params.action].join("/");
-	        method = ACTIONS_METHOD_MAP[params.action] || "post";
-	      }
-
-	      return ajax[method](path, { payload: mutator.data }, params.options).then(function (resource) {
-	        delete self._mutators[params.id];
-
-	        if (create && resource) {
-	          if (params.append && self._state[params.id] && self._state[params.id].status === "success") {
-
-	            self._state[params.id].data.items.push(resource._id);
-	          }
-	          params.id = resource._id;
-	        }
-
-	        if (resource && resource.collection) {
-	          self._state[params.id] = {
-	            status: "success",
-	            data: self._normalizeCollection(params.id, resource)
-	          };
-	        } else {
-	          self._state[params.id] = {
-	            status: "success",
-	            data: resource
-	          };
-	        }
-
-	        collection.each(params.stale, function (_, resourceId) {
-	          var pattern = new RegExp(resourceId + "(?:\\?.*)?$");
-
-	          collection.each(object.keys(self._state), function (_, stateId) {
-	            if (stateId.match(pattern)) {
-	              delete self._state[stateId];
-	            }
-	          });
-	        });
-
-	        self.emit("change");
-
-	        if (params.successCallback) {
-	          params.successCallback(resource);
-	        }
-	      }, function (resource) {
-	        mutator.status = "failed";
-
-	        if (!resource) {
-	          console.error("ERROR: " + method + " " + params.id);
-
-	          self.emit("change");
-
-	          return;
-	        }
-
-	        mutator.errors = resource.errors;
-
-	        if (params.options && params.options.revertOnFailure) {
-	          mutator.data = self._state[params.id].data || {};
-	        }
-
-	        self.emit("change");
-
-	        if (params.failedCallback) {
-	          params.failedCallback(resource);
-	        }
-	      }).done();
-	    }
-	  }, {
 	    key: "_fetchResource",
 	    value: function _fetchResource(params) {
 	      var _this = this;
 
 	      var id = params.id,
-	          resource = null;
+	          req = null;
 
 	      if (params.cursor) {
 	        id = [id, params.cursor].join("?");
@@ -36647,7 +36609,13 @@
 	          data: {}
 	        }));
 
-	        _superagent2["default"].get("//birra.herokuapp.com/api/v1" + id).set("Accept", "application/json").end(function (error, response) {
+	        if (params.local) {
+	          req = _superagent2["default"].get("/api" + id);
+	        } else {
+	          req = _superagent2["default"].get("//birra.herokuapp.com/api/v1" + id);
+	        }
+
+	        req.set("Accept", "application/json").end(function (error, response) {
 	          var resource = (0, _immutable.fromJS)(response.body);
 
 	          _this._state = _this._state.set(id, new _immutable.Map({
@@ -36658,23 +36626,6 @@
 
 	          _this.emit("change");
 	        });
-	        // }, function (resource) {
-	        //   self._state[resourceId] = {
-	        //     status: "failed",
-	        //     data: resource || {}
-	        //   };
-
-	        //   if (!resource) {
-	        //     console.error("ERROR: " + resourceId);
-	        //   }
-
-	        //   self.emit("change");
-
-	        //   if (params.failedCallback) {
-	        //     params.failedCallback(resource);
-	        //   }
-	        // })
-	        // .done();
 	      }
 
 	      return this._state.get(id);
@@ -36687,7 +36638,7 @@
 	module.exports = Store;
 
 /***/ },
-/* 278 */
+/* 280 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -36991,15 +36942,15 @@
 
 
 /***/ },
-/* 279 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 
-	var Emitter = __webpack_require__(280);
-	var reduce = __webpack_require__(281);
+	var Emitter = __webpack_require__(282);
+	var reduce = __webpack_require__(283);
 
 	/**
 	 * Root reference for iframes.
@@ -38154,7 +38105,7 @@
 
 
 /***/ },
-/* 280 */
+/* 282 */
 /***/ function(module, exports) {
 
 	
@@ -38324,7 +38275,7 @@
 
 
 /***/ },
-/* 281 */
+/* 283 */
 /***/ function(module, exports) {
 
 	
@@ -38353,84 +38304,61 @@
 	};
 
 /***/ },
-/* 282 */
-/***/ function(module, exports, __webpack_require__) {
+/* 284 */
+/***/ function(module, exports) {
 
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	var DAYS_PER_MS = 1000 * 60 * 60 * 24;
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var MONTHS = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var pad = function pad(num) {
+	  var str = num.toString();
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(3);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(162);
-
-	var Header = (function (_React$Component) {
-	  _inherits(Header, _React$Component);
-
-	  function Header() {
-	    _classCallCheck(this, Header);
-
-	    _get(Object.getPrototypeOf(Header.prototype), "constructor", this).apply(this, arguments);
+	  if (str.length < 2) {
+	    return "0" + str;
+	  } else {
+	    return str;
 	  }
+	};
 
-	  _createClass(Header, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2["default"].createElement(
-	        "header",
-	        { className: "header" },
-	        this.props.children
-	      );
+	var dateUtil = {
+	  daysLeft: function daysLeft(dateStr) {
+	    var today = new Date();
+	    var date = new Date(dateStr);
+
+	    return Math.floor((date.getTime() - today.getTime()) / DAYS_PER_MS);
+	  },
+	  pretty: function pretty(dateStr) {
+	    var date = new Date(dateStr);
+	    var daysDiff = dateUtil.daysLeft(dateStr);
+	    var timeStr = pad(date.getHours()) + ":" + pad(date.getMinutes());
+
+	    if (0 <= daysDiff && daysDiff < 1) {
+	      return "Hoy a las " + timeStr;
+	    } else if (0 <= daysDiff && daysDiff < 2) {
+	      return "Mañana a las " + timeStr;
+	    } else {
+	      return date.getDate() + " " + MONTHS[date.getMonth()] + " a las " + timeStr;
 	    }
-	  }]);
-
-	  return Header;
-	})(_react2["default"].Component);
-
-	var Title = (function (_React$Component2) {
-	  _inherits(Title, _React$Component2);
-
-	  function Title() {
-	    _classCallCheck(this, Title);
-
-	    _get(Object.getPrototypeOf(Title.prototype), "constructor", this).apply(this, arguments);
+	  },
+	  date: function date(dateStr) {
+	    return new Date(dateStr).getDate().toString();
+	  },
+	  month: function month(dateStr) {
+	    return MONTHS[new Date(dateStr).getMonth()].substr(0, 3);
 	  }
+	};
 
-	  _createClass(Title, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2["default"].createElement(
-	        "h1",
-	        { className: "header-title" },
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return Title;
-	})(_react2["default"].Component);
-
-	Header.Title = Title;
-
-	exports["default"] = Header;
+	exports["default"] = dateUtil;
 	module.exports = exports["default"];
 
 /***/ },
-/* 283 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -38453,81 +38381,44 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(162);
+	var EmptyState = (function (_React$Component) {
+	  _inherits(EmptyState, _React$Component);
 
-	var Details = (function (_React$Component) {
-	  _inherits(Details, _React$Component);
+	  function EmptyState() {
+	    _classCallCheck(this, EmptyState);
 
-	  function Details() {
-	    _classCallCheck(this, Details);
-
-	    _get(Object.getPrototypeOf(Details.prototype), "constructor", this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(EmptyState.prototype), "constructor", this).apply(this, arguments);
 	  }
 
-	  _createClass(Details, [{
+	  _createClass(EmptyState, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2["default"].createElement(
 	        "div",
-	        { className: "details" },
-	        this.props.children
+	        { className: "emptyState" },
+	        _react2["default"].createElement(
+	          "h1",
+	          { className: "emptyState-title" },
+	          this.props.title
+	        ),
+	        _react2["default"].createElement(
+	          "h2",
+	          { className: "emptyState-subtitle" },
+	          this.props.subtitle
+	        )
 	      );
 	    }
 	  }]);
 
-	  return Details;
+	  return EmptyState;
 	})(_react2["default"].Component);
 
-	var Item = (function (_React$Component2) {
-	  _inherits(Item, _React$Component2);
+	EmptyState.propTypes = {
+	  subtitle: _react2["default"].PropTypes.string.isRequired,
+	  title: _react2["default"].PropTypes.string.isRequired
+	};
 
-	  function Item() {
-	    _classCallCheck(this, Item);
-
-	    _get(Object.getPrototypeOf(Item.prototype), "constructor", this).apply(this, arguments);
-	  }
-
-	  _createClass(Item, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2["default"].createElement(
-	        "div",
-	        { className: "details-item" },
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return Item;
-	})(_react2["default"].Component);
-
-	var Title = (function (_React$Component3) {
-	  _inherits(Title, _React$Component3);
-
-	  function Title() {
-	    _classCallCheck(this, Title);
-
-	    _get(Object.getPrototypeOf(Title.prototype), "constructor", this).apply(this, arguments);
-	  }
-
-	  _createClass(Title, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2["default"].createElement(
-	        "span",
-	        { className: "details-title" },
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return Title;
-	})(_react2["default"].Component);
-
-	Details.Item = Item;
-	Details.Title = Title;
-
-	exports["default"] = Details;
+	exports["default"] = EmptyState;
 	module.exports = exports["default"];
 
 /***/ }

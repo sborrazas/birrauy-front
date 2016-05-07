@@ -52,7 +52,7 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _utilsStoreJs = __webpack_require__(279);
+	var _utilsStoreJs = __webpack_require__(281);
 
 	var _utilsStoreJs2 = _interopRequireDefault(_utilsStoreJs);
 
@@ -19858,7 +19858,7 @@
 
 	var _PagesEventos2 = _interopRequireDefault(_PagesEventos);
 
-	var _historyLibCreateBrowserHistory = __webpack_require__(278);
+	var _historyLibCreateBrowserHistory = __webpack_require__(280);
 
 	var _historyLibCreateBrowserHistory2 = _interopRequireDefault(_historyLibCreateBrowserHistory);
 
@@ -35502,7 +35502,7 @@
 	              "¿Dónde Pinta?"
 	            ),
 	            "es un mapa interactivo que muestra la ubicación de bares, tiendas y productores de cerveza artesanal de todo Uruguay. Ofrece información actualizada de los locales (extraída de",
-	            " ",
+	            "Foursquare",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "http://foursquare.com" },
@@ -35529,13 +35529,19 @@
 	            _BaseAbout2["default"].Description,
 	            null,
 	            "Si ves que falta información, envianos un correo a",
-	            " ",
+	            "Contacto DATA Uruguay",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "mailto:contacto@datauy.org" },
 	              "contacto@datauy.org"
 	            ),
-	            "."
+	            ". Si sos un cervecero y tenés ",
+	            _react2["default"].createElement(
+	              "b",
+	              null,
+	              "mucha"
+	            ),
+	            " información, aún mejor. Podemos coordinar para que la información de tu marca siempre esté actualizada."
 	          ),
 	          _react2["default"].createElement(
 	            _BaseAbout2["default"].Title,
@@ -35546,34 +35552,34 @@
 	            _BaseAbout2["default"].Description,
 	            null,
 	            "Este proyecto nace de una propuesta de",
-	            " ",
+	            "DATA Uruguay",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "http://datauy.org" },
-	              "DATA"
+	              "DATA Uruguay"
 	            ),
 	            ",",
-	            " ",
+	            "Mirá Mamá",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "http://miramama.com.uy" },
 	              "Mirá Mamá"
 	            ),
 	            " y",
-	            " ",
+	            "Underground Beer Club",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "http://ubc.com.uy" },
 	              "Underground Beer Club"
 	            ),
-	            ", que invitaron a la comunidad a desarrollar esta idea a través de un primer encuentro en un Café de DATA (reuniones mensuales para trabajar en Datos Abiertos y herramientas sociales realizadas en",
-	            " ",
+	            ", que invitaron a la comunidad a desarrollar esta idea a través de un primer encuentro en un ",
+	            "DATA Uruguay",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
-	              { to: "https://www.twitter.com/coworkinguy" },
-	              "CoworkingUY"
+	              { to: "http://meetup.com/es-ES/Cafes-de-DATA/" },
+	              "Café de DATA"
 	            ),
-	            ")."
+	            "(reuniones mensuales para trabajar en Datos Abiertos y herramientas sociales. Llegó a completarse gracias a la colaboración de Sebastián Borrazás (¡gracias Seba!)."
 	          ),
 	          _react2["default"].createElement(
 	            _BaseAbout2["default"].Title,
@@ -35583,6 +35589,11 @@
 	          _react2["default"].createElement(
 	            _BaseAbout2["default"].List,
 	            null,
+	            _react2["default"].createElement(
+	              _BaseAbout2["default"].ListItem,
+	              null,
+	              "Sebastián Borrazás"
+	            ),
 	            _react2["default"].createElement(
 	              _BaseAbout2["default"].ListItem,
 	              null,
@@ -35720,7 +35731,14 @@
 	              { to: "http://uycheck.com" },
 	              "UYCheck"
 	            ),
-	            "en base a información propia y fuentes de la web. Se encuentran disponibles para su reutilización a través del Catálogo Nacional de Datos Abiertos de AGESIC, como datos abiertos, en formatos abiertos."
+	            "en base a información propia y fuentes de la web. Se encuentran",
+	            "Descargar Datos Abiertos",
+	            _react2["default"].createElement(
+	              _BaseLink2["default"],
+	              { to: "https://catalogodatos.gub.uy/dataset/productores-puntos-de-venta-y-tipos-de-cerveza-artesanal-uruguaya-dondepinta-uy" },
+	              "disponibles para su reutilización a través del Catálogo Nacional de Datos Abiertos de AGESIC"
+	            ),
+	            ", como datos abiertos, en formatos abiertos."
 	          ),
 	          _react2["default"].createElement(
 	            _BaseAbout2["default"].Description,
@@ -36189,7 +36207,7 @@
 
 	var _BaseList2 = _interopRequireDefault(_BaseList);
 
-	var _BaseEmptyState = __webpack_require__(285);
+	var _BaseEmptyState = __webpack_require__(278);
 
 	var _BaseEmptyState2 = _interopRequireDefault(_BaseEmptyState);
 
@@ -36197,7 +36215,7 @@
 
 	var _utilsRelayJs2 = _interopRequireDefault(_utilsRelayJs);
 
-	var _utilsDateJs = __webpack_require__(284);
+	var _utilsDateJs = __webpack_require__(279);
 
 	var _utilsDateJs2 = _interopRequireDefault(_utilsDateJs);
 
@@ -36356,6 +36374,124 @@
 
 /***/ },
 /* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var EmptyState = (function (_React$Component) {
+	  _inherits(EmptyState, _React$Component);
+
+	  function EmptyState() {
+	    _classCallCheck(this, EmptyState);
+
+	    _get(Object.getPrototypeOf(EmptyState.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(EmptyState, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { className: "emptyState" },
+	        _react2["default"].createElement(
+	          "h1",
+	          { className: "emptyState-title" },
+	          this.props.title
+	        ),
+	        _react2["default"].createElement(
+	          "h2",
+	          { className: "emptyState-subtitle" },
+	          this.props.subtitle
+	        )
+	      );
+	    }
+	  }]);
+
+	  return EmptyState;
+	})(_react2["default"].Component);
+
+	EmptyState.propTypes = {
+	  subtitle: _react2["default"].PropTypes.string.isRequired,
+	  title: _react2["default"].PropTypes.string.isRequired
+	};
+
+	exports["default"] = EmptyState;
+	module.exports = exports["default"];
+
+/***/ },
+/* 279 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var DAYS_PER_MS = 1000 * 60 * 60 * 24;
+
+	var MONTHS = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
+
+	var pad = function pad(num) {
+	  var str = num.toString();
+
+	  if (str.length < 2) {
+	    return "0" + str;
+	  } else {
+	    return str;
+	  }
+	};
+
+	var dateUtil = {
+	  daysLeft: function daysLeft(dateStr) {
+	    var today = new Date();
+	    var date = new Date(dateStr);
+
+	    return Math.floor((date.getTime() - today.getTime()) / DAYS_PER_MS);
+	  },
+	  pretty: function pretty(dateStr) {
+	    var date = new Date(dateStr);
+	    var daysDiff = dateUtil.daysLeft(dateStr);
+	    var timeStr = pad(date.getHours()) + ":" + pad(date.getMinutes());
+
+	    if (0 <= daysDiff && daysDiff < 1) {
+	      return "Hoy a las " + timeStr;
+	    } else if (0 <= daysDiff && daysDiff < 2) {
+	      return "Mañana a las " + timeStr;
+	    } else {
+	      return date.getDate() + " " + MONTHS[date.getMonth()] + " a las " + timeStr;
+	    }
+	  },
+	  date: function date(dateStr) {
+	    return new Date(dateStr).getDate().toString();
+	  },
+	  month: function month(dateStr) {
+	    return MONTHS[new Date(dateStr).getMonth()].substr(0, 3);
+	  }
+	};
+
+	exports["default"] = dateUtil;
+	module.exports = exports["default"];
+
+/***/ },
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -36533,7 +36669,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 279 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -36548,13 +36684,13 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _events = __webpack_require__(280);
+	var _events = __webpack_require__(282);
 
 	var _events2 = _interopRequireDefault(_events);
 
 	var _immutable = __webpack_require__(265);
 
-	var _superagent = __webpack_require__(281);
+	var _superagent = __webpack_require__(283);
 
 	var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -36638,7 +36774,7 @@
 	module.exports = Store;
 
 /***/ },
-/* 280 */
+/* 282 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -36942,15 +37078,15 @@
 
 
 /***/ },
-/* 281 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 
-	var Emitter = __webpack_require__(282);
-	var reduce = __webpack_require__(283);
+	var Emitter = __webpack_require__(284);
+	var reduce = __webpack_require__(285);
 
 	/**
 	 * Root reference for iframes.
@@ -38105,7 +38241,7 @@
 
 
 /***/ },
-/* 282 */
+/* 284 */
 /***/ function(module, exports) {
 
 	
@@ -38275,7 +38411,7 @@
 
 
 /***/ },
-/* 283 */
+/* 285 */
 /***/ function(module, exports) {
 
 	
@@ -38302,124 +38438,6 @@
 	  
 	  return curr;
 	};
-
-/***/ },
-/* 284 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var DAYS_PER_MS = 1000 * 60 * 60 * 24;
-
-	var MONTHS = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
-
-	var pad = function pad(num) {
-	  var str = num.toString();
-
-	  if (str.length < 2) {
-	    return "0" + str;
-	  } else {
-	    return str;
-	  }
-	};
-
-	var dateUtil = {
-	  daysLeft: function daysLeft(dateStr) {
-	    var today = new Date();
-	    var date = new Date(dateStr);
-
-	    return Math.floor((date.getTime() - today.getTime()) / DAYS_PER_MS);
-	  },
-	  pretty: function pretty(dateStr) {
-	    var date = new Date(dateStr);
-	    var daysDiff = dateUtil.daysLeft(dateStr);
-	    var timeStr = pad(date.getHours()) + ":" + pad(date.getMinutes());
-
-	    if (0 <= daysDiff && daysDiff < 1) {
-	      return "Hoy a las " + timeStr;
-	    } else if (0 <= daysDiff && daysDiff < 2) {
-	      return "Mañana a las " + timeStr;
-	    } else {
-	      return date.getDate() + " " + MONTHS[date.getMonth()] + " a las " + timeStr;
-	    }
-	  },
-	  date: function date(dateStr) {
-	    return new Date(dateStr).getDate().toString();
-	  },
-	  month: function month(dateStr) {
-	    return MONTHS[new Date(dateStr).getMonth()].substr(0, 3);
-	  }
-	};
-
-	exports["default"] = dateUtil;
-	module.exports = exports["default"];
-
-/***/ },
-/* 285 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(3);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var EmptyState = (function (_React$Component) {
-	  _inherits(EmptyState, _React$Component);
-
-	  function EmptyState() {
-	    _classCallCheck(this, EmptyState);
-
-	    _get(Object.getPrototypeOf(EmptyState.prototype), "constructor", this).apply(this, arguments);
-	  }
-
-	  _createClass(EmptyState, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2["default"].createElement(
-	        "div",
-	        { className: "emptyState" },
-	        _react2["default"].createElement(
-	          "h1",
-	          { className: "emptyState-title" },
-	          this.props.title
-	        ),
-	        _react2["default"].createElement(
-	          "h2",
-	          { className: "emptyState-subtitle" },
-	          this.props.subtitle
-	        )
-	      );
-	    }
-	  }]);
-
-	  return EmptyState;
-	})(_react2["default"].Component);
-
-	EmptyState.propTypes = {
-	  subtitle: _react2["default"].PropTypes.string.isRequired,
-	  title: _react2["default"].PropTypes.string.isRequired
-	};
-
-	exports["default"] = EmptyState;
-	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);

@@ -21,7 +21,10 @@ class Info extends React.Component {
             <Text strong={true}>¿Dónde Pinta?</Text>
             es un mapa interactivo que muestra la ubicación de bares, tiendas
             y productores de cerveza artesanal de todo Uruguay. Ofrece
-            información actualizada de los locales (extraída de {""}<Link to="http://foursquare.com">Foursquare</Link>), marcas y estilos de cervezas artesanales nacionales, así como de eventos y novedades vinculadas a la temática.
+            información actualizada de los locales (extraída de {" "}
+            <Link to="http://foursquare.com">Foursquare</Link>), marcas y
+            estilos de cervezas artesanales nacionales, así como de eventos y
+            novedades vinculadas a la temática.
           </About.Description>
           <About.Title>A quién va dirigido</About.Title>
           <About.Description>
@@ -33,14 +36,24 @@ class Info extends React.Component {
           </About.Description>
           <About.Title>¿Cómo colaborar?</About.Title>
           <About.Description>
-            Si ves que falta información, envianos un correo a {""}<Link to="mailto:contacto@datauy.org">contacto@datauy.org</Link>.
-            Si sos un cervecero y tenés <b>mucha</b> información, aún mejor. Podemos
-            coordinar para que la información de tu marca siempre esté actualizada.
+            Si ves que falta información, envianos un correo a {" "}
+            <Link to="mailto:contacto@datauy.org">contacto@datauy.org</Link>.
+            Si sos un cervecero y tenés <b>mucha</b> información, aún mejor.
+            Podemos coordinar para que la información de tu marca siempre esté
+            actualizada.
           </About.Description>
           <About.Title>Equipo</About.Title>
           <About.Description>
-            Este proyecto nace de una propuesta de {""}<Link to="http://datauy.org">DATA Uruguay</Link>, {""}<Link to="http://miramama.com.uy">Mirá Mamá</Link> y {""}<Link to="http://ubc.com.uy">Underground Beer Club</Link>,
-            que invitaron a la comunidad a desarrollar esta idea a través de un primer encuentro en un {""}<Link to="http://meetup.com/es-ES/Cafes-de-DATA/">Café de DATA</Link> (reuniones mensuales para trabajar en Datos Abiertos y herramientas sociales. Llegó a completarse gracias a la colaboración de Sebastián Borrazás (¡gracias Seba!).
+            Este proyecto nace de una propuesta de
+            {" "}<Link to="http://datauy.org">DATA Uruguay</Link>,
+            {" "}<Link to="http://miramama.com.uy">Mirá Mamá</Link> y
+            {" "}<Link to="http://ubc.com.uy">Underground Beer Club</Link>,
+            que invitaron a la comunidad a desarrollar esta idea a través de un
+            primer encuentro en un {" "}
+            <Link to="http://meetup.com/es-ES/Cafes-de-DATA/">Café de DATA</Link>
+            (reuniones mensuales para trabajar en Datos Abiertos y herramientas
+            sociales). Llegó a completarse gracias a la colaboración de
+            Sebastián Borrazás (¡gracias Seba!).
           </About.Description>
           <About.Title secondary={true}>Desarrollo</About.Title>
           <About.List>
@@ -74,7 +87,12 @@ class Info extends React.Component {
           <About.Title>Datos abiertos que usa la aplicación</About.Title>
           <About.Description>
             Los datos utilizados en esta aplicación fueron recopilados por
-            {" "}<Link to="http://ubc.com.uy">Underground Beer Club</Link>, {" "}<Link to="http://datauy.org">DATA</Link> y {" "}<Link to="http://uycheck.com">UYCheck</Link> en base a información propia y fuentes de la web. Se encuentran {""}<Link to="https://catalogodatos.gub.uy/dataset/productores-puntos-de-venta-y-tipos-de-cerveza-artesanal-uruguaya-dondepinta-uy">disponibles para su reutilización a través del Catálogo Nacional de Datos Abiertos de AGESIC</Link>, como datos abiertos, en formatos abiertos.
+            {" "}<Link to="http://ubc.com.uy">Underground Beer Club</Link>,
+            {" "}<Link to="http://datauy.org">DATA</Link> y
+            {" "}<Link to="http://uycheck.com">UYCheck</Link> en
+            base a información propia y fuentes de la web. Se encuentran
+            {" "}<Link to="https://catalogodatos.gub.uy/dataset/productores-puntos-de-venta-y-tipos-de-cerveza-artesanal-uruguaya-dondepinta-uy">disponibles para su reutilización a través del Catálogo Nacional de Datos Abiertos de AGESIC</Link>,
+            como datos abiertos, en formatos abiertos.
           </About.Description>
           <About.Title>¿Qué son Datos Abiertos?</About.Title>
           <About.Description>

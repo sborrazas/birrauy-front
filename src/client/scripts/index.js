@@ -35485,8 +35485,8 @@
 	              { strong: true },
 	              "¿Dónde Pinta?"
 	            ),
-	            "es un mapa interactivo que muestra la ubicación de bares, tiendas y productores de cerveza artesanal de todo Uruguay. Ofrece información actualizada de los locales (extraída de",
-	            "Foursquare",
+	            "es un mapa interactivo que muestra la ubicación de bares, tiendas y productores de cerveza artesanal de todo Uruguay. Ofrece información actualizada de los locales (extraída de ",
+	            " ",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "http://foursquare.com" },
@@ -35512,8 +35512,8 @@
 	          _react2["default"].createElement(
 	            _BaseAbout2["default"].Description,
 	            null,
-	            "Si ves que falta información, envianos un correo a",
-	            "Contacto DATA Uruguay",
+	            "Si ves que falta información, envianos un correo a ",
+	            " ",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "mailto:contacto@datauy.org" },
@@ -35536,34 +35536,34 @@
 	            _BaseAbout2["default"].Description,
 	            null,
 	            "Este proyecto nace de una propuesta de",
-	            "DATA Uruguay",
+	            " ",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "http://datauy.org" },
 	              "DATA Uruguay"
 	            ),
 	            ",",
-	            "Mirá Mamá",
+	            " ",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "http://miramama.com.uy" },
 	              "Mirá Mamá"
 	            ),
 	            " y",
-	            "Underground Beer Club",
+	            " ",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "http://ubc.com.uy" },
 	              "Underground Beer Club"
 	            ),
 	            ", que invitaron a la comunidad a desarrollar esta idea a través de un primer encuentro en un ",
-	            "DATA Uruguay",
+	            " ",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "http://meetup.com/es-ES/Cafes-de-DATA/" },
 	              "Café de DATA"
 	            ),
-	            "(reuniones mensuales para trabajar en Datos Abiertos y herramientas sociales. Llegó a completarse gracias a la colaboración de Sebastián Borrazás (¡gracias Seba!)."
+	            "(reuniones mensuales para trabajar en Datos Abiertos y herramientas sociales). Llegó a completarse gracias a la colaboración de Sebastián Borrazás (¡gracias Seba!)."
 	          ),
 	          _react2["default"].createElement(
 	            _BaseAbout2["default"].Title,
@@ -35715,23 +35715,14 @@
 	              { to: "http://uycheck.com" },
 	              "UYCheck"
 	            ),
-	            "en base a información propia y fuentes de la web. Se encuentran",
-	            "Descargar Datos Abiertos",
+	            " en base a información propia y fuentes de la web. Se encuentran",
+	            " ",
 	            _react2["default"].createElement(
 	              _BaseLink2["default"],
 	              { to: "https://catalogodatos.gub.uy/dataset/productores-puntos-de-venta-y-tipos-de-cerveza-artesanal-uruguaya-dondepinta-uy" },
 	              "disponibles para su reutilización a través del Catálogo Nacional de Datos Abiertos de AGESIC"
 	            ),
 	            ", como datos abiertos, en formatos abiertos."
-	          ),
-	          _react2["default"].createElement(
-	            _BaseAbout2["default"].Description,
-	            null,
-	            _react2["default"].createElement(
-	              _BaseText2["default"],
-	              { strong: true },
-	              "SUBIR Y PONER ENLACE A LOS DATOS"
-	            )
 	          ),
 	          _react2["default"].createElement(
 	            _BaseAbout2["default"].Title,
@@ -36214,8 +36205,8 @@
 	    return _react2["default"].createElement(
 	      _BaseList2["default"].Item,
 	      { key: event.get("id"), to: EVENT_URL + event.get("id") },
-	      startTime && _react2["default"].createElement(_BaseList2["default"].ItemDate, { date: _utilsDateJs2["default"].date(event.get("start_time")),
-	        month: _utilsDateJs2["default"].month(event.get("start_time")) }),
+	      startTime && _react2["default"].createElement(_BaseList2["default"].ItemDate, { date: _utilsDateJs2["default"].date(startTime),
+	        month: _utilsDateJs2["default"].month(startTime) }),
 	      _react2["default"].createElement(
 	        _BaseList2["default"].ItemTitle,
 	        { event: true },

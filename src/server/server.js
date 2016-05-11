@@ -42,6 +42,22 @@ app.get("/api/events", function (req, res) {
   );
 });
 
+app.get("/api/news", function (req, res) {
+  graph.get(
+    "/CervezaArtesanalUY/feed",
+    function (err, response) {
+      if (response && !response.error) {
+        res.setHeader("Content-Type", "application/json");
+        res.end(JSON.stringify(response.data));
+      }
+      else {
+        res.statusCode = 500;
+        res.end("Internal server error.");
+      }
+    }
+  );
+});
+
 app.get("*", function (req, res) {
   res.sendFile(path.resolve(__dirname, "../client/index.html"));
 });

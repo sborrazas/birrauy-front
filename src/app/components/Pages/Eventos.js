@@ -18,8 +18,8 @@ const processEvents = (events) => {
       <List.Item key={event.get("id")} to={EVENT_URL + event.get("id")}>
         {
           startTime &&
-            <List.ItemDate date={date.date(event.get("start_time"))}
-                           month={date.month(event.get("start_time"))} />
+            <List.ItemDate date={date.date(startTime)}
+                           month={date.month(startTime)} />
         }
         <List.ItemTitle event={true}>{event.get("name")}</List.ItemTitle>
         {

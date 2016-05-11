@@ -24804,6 +24804,11 @@
 	              _BaseNav2["default"].Item,
 	              { to: "/eventos", icon: "eventos" },
 	              "Eventos"
+	            ),
+	            _react2["default"].createElement(
+	              _BaseNav2["default"].Item,
+	              { to: "/noticias", icon: "noticias" },
+	              "Noticias"
 	            )
 	          )
 	        )
@@ -35260,6 +35265,20 @@
 
 	var _utilsRelayJs2 = _interopRequireDefault(_utilsRelayJs);
 
+	var _BaseList = __webpack_require__(270);
+
+	var _BaseList2 = _interopRequireDefault(_BaseList);
+
+	var _BaseEmptyState = __webpack_require__(278);
+
+	var _BaseEmptyState2 = _interopRequireDefault(_BaseEmptyState);
+
+	var _utilsDateJs = __webpack_require__(279);
+
+	var _utilsDateJs2 = _interopRequireDefault(_utilsDateJs);
+
+	var NEWS_URL = "https://www.facebook.com/CervezaArtesanalUY/posts/";
+
 	var Noticias = (function (_React$Component) {
 	  _inherits(Noticias, _React$Component);
 
@@ -35272,29 +35291,10 @@
 	  _createClass(Noticias, [{
 	    key: "render",
 	    value: function render() {
-	      var _this = this;
+	      var news = this.props.news;
+	      var content = undefined;
 
-	      console.log(this.props.news);
-	      return _react2["default"].createElement(
-	        "div",
-	        null,
-	        "a"
-	      );
-
-	      var breweries = this.props.breweries,
-	          activeBreweryId = this.state.activeBreweryId,
-	          activeBrewery = null,
-	          breweryPhoto = null,
-	          containerProps = null,
-	          markers = null;
-
-	      containerProps = {
-	        style: {
-	          height: "100%"
-	        }
-	      };
-
-	      if (breweries.get("status") === "loading") {
+	      if (news.get("status") === "loading") {
 	        return _react2["default"].createElement(
 	          "div",
 	          null,
@@ -35302,88 +35302,39 @@
 	        );
 	      }
 
-	      if (activeBreweryId) {
-	        activeBrewery = breweries.get("data").find(function (brewery) {
-	          return brewery.get("id") === activeBreweryId;
-	        });
+	      if (news.get("data").size > 0) {
+	        content = news.get("data").filter(function (pNews) {
+	          return pNews.get("message");
+	        }).map(function (pNews) {
+	          var createdTime = pNews.get("created_time");
 
-	        if (activeBrewery.get("photo_suffix")) {
-	          breweryPhoto = _react2["default"].createElement(Banner.Img, { src: activeBrewery.get("photo_prefix") + "height50" + activeBrewery.get("photo_suffix") });
-	        }
-
-	        activeBrewery = _react2["default"].createElement(
-	          _BaseLayout2["default"].Banner,
-	          null,
-	          _react2["default"].createElement(
-	            Banner,
-	            null,
-	            breweryPhoto,
+	          return _react2["default"].createElement(
+	            _BaseList2["default"].Item,
+	            { key: pNews.get("id"), to: NEWS_URL + pNews.get("id") },
+	            _react2["default"].createElement(_BaseList2["default"].ItemDate, { date: _utilsDateJs2["default"].date(createdTime),
+	              month: _utilsDateJs2["default"].month(createdTime) }),
 	            _react2["default"].createElement(
-	              Banner.Title,
-	              null,
-	              activeBrewery.get("name")
+	              _BaseList2["default"].ItemTitle,
+	              { event: true },
+	              pNews.get("message")
 	            ),
 	            _react2["default"].createElement(
-	              Banner.Description,
+	              _BaseList2["default"].ItemDescription,
 	              null,
-	              activeBrewery.get("address")
+	              _utilsDateJs2["default"].pretty(createdTime)
 	            )
-	          )
-	        );
+	          );
+	        });
+	      } else {
+	        content = _react2["default"].createElement(_BaseEmptyState2["default"], { title: "Estos programadores...",
+	          subtitle: "No se encontró ninguna noticia" });
 	      }
-
-	      markers = breweries.get("data").filter(function (brewery) {
-	        return brewery.get("lat") && brewery.get("lng") && BREWERY_TYPES.indexOf(brewery.get("brewery_type")) !== -1;
-	      }).map(function (brewery) {
-	        var isActive = brewery.get("id") === activeBreweryId,
-	            imgKey = BREWERY_IMG_MAP[brewery.get("brewery_type")],
-	            position = null,
-	            icon = null;
-
-	        if (isActive) {
-	          imgKey += "-active";
-	        }
-
-	        position = {
-	          lat: parseFloat(brewery.get("lat")),
-	          lng: parseFloat(brewery.get("lng"))
-	        };
-	        icon = {
-	          url: IMAGES_URL + imgKey + ".png",
-	          scaledSize: {
-	            width: 34,
-	            height: 45
-	          }
-	        };
-
-	        return _react2["default"].createElement(Marker, { key: brewery.get("id"),
-	          position: position,
-	          defaultAnimation: 2,
-	          icon: icon,
-	          onClick: _this._selectMarkerHandler(brewery.get("id")) });
-	      }).toJS();
 
 	      return _react2["default"].createElement(
 	        _BaseLayout2["default"].Content,
-	        { withBanner: !!activeBrewery },
-	        _react2["default"].createElement(
-	          GoogleMap,
-	          { containerProps: containerProps,
-	            defaultCenter: DEFAULT_LOCATION,
-	            defaultZoom: 14 },
-	          markers
-	        ),
-	        activeBrewery
+	        null,
+	        content
 	      );
-	    }
-	  }, {
-	    key: "_selectMarkerHandler",
-	    value: function _selectMarkerHandler(breweryId) {
-	      var _this2 = this;
-
-	      return function () {
-	        _this2.setState({ activeBreweryId: breweryId });
-	      };
 	    }
 	  }]);
 

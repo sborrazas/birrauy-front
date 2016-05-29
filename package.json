@@ -7,9 +7,8 @@
     "fbgraph": "^1.1.0",
     "history": "^1.13.1",
     "immutable": "^3.7.5",
-    "react": "^0.14.2",
-    "react-google-map": "^1.0.1",
-    "react-google-maps": "^4.2.0",
+    "react": "^15.1.0",
+    "react-google-maps": "^4.11.0",
     "react-router": "^1.0.2",
     "superagent": "^1.4.0"
   },
